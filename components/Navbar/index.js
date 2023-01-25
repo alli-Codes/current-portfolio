@@ -11,75 +11,77 @@ function NavBar() {
   return (
     <React.Fragment>
       <div
-        className={`navbar relative h-auto w-full flex  align-center justify-between py-[20px]`}
+        className={`navbar w-full mt-4 sticky top-0 bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center py-[20px]`}
       >
-        <div
-          className={`left w-auto flex align-start items-start justify-center px-[10px] `}
-        >
-          <p className={`font-extrabold mr-[20px]`}>Evans</p>
-        </div>
+        <div className={`w-full max-w-[70rem] flex justify-between`}>
+          <div
+            className={`left w-auto flex align-start items-start justify-center px-[10px] `}
+          >
+            <p className={`font-extrabold text-lg`}>Evans</p>
+          </div>
 
-        <ul className={`relative self-center ml-[10px] hidden md:flex`}>
-          <li
-            className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
-          >
-            <Link href="/">Home</Link>
-          </li>
-          <li
-            className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
-          >
-            <Link href="/about">About</Link>
-          </li>
-          <li
-            className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
-          >
-            <Link href="/projects">Projects</Link>
-          </li>
-          <li
-            className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
-          >
-            <Link href="#contact">Contact</Link>
-          </li>
-        </ul>
-        <div
-          className={`relative px-4 bg-[#0000002b] rounded-full hidden md:flex `}
-        >
-          <ul className={`flex flex-row gap-3`}>
-            {socials["twitter"] !== "" && (
-              <a
-                href={socials["twitter"]}
-                target="_blank"
-                className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
-              >
-                <FaTwitter className={``} />
-              </a>
-            )}
-
-            {socials["github"] !== "" && (
-              <a
-                href={socials["github"]}
-                target="_blank"
-                className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
-              >
-                <FaGithub className={``} />
-              </a>
-            )}
-
-            {socials["email"] !== "" && (
-              <a
-                href={`mailto:${socials["email"]}`}
-                className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
-              >
-                <FiMail className={`icon mail`} />
-              </a>
-            )}
+          <ul className={`relative self-center ml-[10px] hidden md:flex`}>
+            <li
+              className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
+            >
+              <Link href="/">Home</Link>
+            </li>
+            <li
+              className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
+            >
+              <Link href="/about">About</Link>
+            </li>
+            <li
+              className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
+            >
+              <Link href="/projects">Projects</Link>
+            </li>
+            <li
+              className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
+            >
+              <Link href="#contact">Contact</Link>
+            </li>
           </ul>
-        </div>
-        <div className={`absolute top-[15px] right-[25px] md:hidden `}>
-          <img
-            src={avatar.src}
-            className={` w-[40px] rounded-[50%] border-[2px] border-solid border-green-100 bg-dark-100 `}
-          />
+          <div
+            className={`relative px-4 bg-[#0000002b] rounded-full hidden md:flex `}
+          >
+            <ul className={`flex flex-row gap-3`}>
+              {socials["twitter"] !== "" && (
+                <a
+                  href={socials["twitter"]}
+                  target="_blank"
+                  className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
+                >
+                  <FaTwitter className={``} />
+                </a>
+              )}
+
+              {socials["github"] !== "" && (
+                <a
+                  href={socials["github"]}
+                  target="_blank"
+                  className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
+                >
+                  <FaGithub className={``} />
+                </a>
+              )}
+
+              {socials["email"] !== "" && (
+                <a
+                  href={`mailto:${socials["email"]}`}
+                  className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
+                >
+                  <FiMail className={`icon mail`} />
+                </a>
+              )}
+            </ul>
+          </div>
+          <div className={`absolute top-[15px] right-[25px] md:hidden `}>
+            <img
+              src={avatar.src}
+              className={` w-[40px] rounded-[50%] border-[2px] border-solid border-green-100 bg-dark-100 `}
+            />
+          </div>
         </div>
       </div>
     </React.Fragment>
