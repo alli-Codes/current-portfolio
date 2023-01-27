@@ -1,20 +1,29 @@
 import Link from "next/link";
 
-import skills from "../../data/skills.json";
+import tools from "../../data/tools.json";
 import usersInfo from "../../data/usersInfo.json";
 
 export default function Intro() {
+  const myTools = tools.tools;
   return (
-    <div className={`w-full flex justify-center`}>
+    <div className={`w-full flex justify-center py-10`}>
       <div
-        className={`max-w-[70rem] bg-red-400 w-full py-4 flex items-start justify-between flex-row flex-wrap-reverse`}
+        className={`max-w-[70rem] w-full py-4 flex flex-col justify-center items-center gap-4`}
       >
-        <h1
-          data-aos="zoom-in-up"
-          className={`text-lg w-full text-center font-bold`}
-        >
+        <h1 data-aos="zoom-in-up" className={`text-lg font-bold`}>
           SOME OF THE TOOLS I USE
         </h1>
+
+        <div className="tools max-w-[30rem] flex flex-wrap justify-center gap-y-10">
+          {myTools.map((value) => {
+            return (
+              <div className="flex flex-col items-center">
+                <img src={`/images/tools/${value.image}.png`} />
+                <p className="font-semibold text-xs">{value.tool}</p>
+              </div>
+            );
+          })}
+        </div>
 
         {/* <Link href="/about">
             <a
