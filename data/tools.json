@@ -1,0 +1,36 @@
+{
+    "tools": [
+        {
+            "image": "vue",
+            "tool": "Vue/Nuxt"
+        },
+        {
+            "image": "react",
+            "tool": "React"
+        },
+        {
+            "image": "svelte",
+            "tool": "Svelte"
+        },
+        {
+            "image": "tailwindcss",
+            "tool": "Tailwindcss"
+        },
+        {
+            "image": "nodejs",
+            "tool": "Nodejs"
+        },
+        {
+            "image": "illustrator",
+            "tool": "Illustrator"
+        },
+        {
+            "image": "figma",
+            "tool": "Figma"
+        },
+        {
+            "image": "expressjs",
+            "tool": "ExpressJs"
+        }
+    ]
+}
