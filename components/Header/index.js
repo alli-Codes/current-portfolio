@@ -133,7 +133,7 @@ export default function Header({ children }) {
               {/* <img data-aos="zoom-in-up" src={avatar === "" ? userAvatar.src : avatar} className={`avatar rounded-[50%] `} /> */}
             </div>
             <div data-aos="fade-up" className={`circleA`}>
-              <img
+              {/* <img
                 src={
                   languages.languages.length === 0 &&
                   languages.languages.length > 2
@@ -141,10 +141,10 @@ export default function Header({ children }) {
                     : languages.languages[0]
                 }
                 className={`langImgA`}
-              />
+              /> */}
             </div>
             <div data-aos="fade-right" className={`circleB`}>
-              <img
+              {/* <img
                 src={
                   languages.languages.length === 0 &&
                   languages.languages.length > 2
@@ -152,9 +152,9 @@ export default function Header({ children }) {
                     : languages.languages[1]
                 }
                 className={`langImgB`}
-              />
+              /> */}
             </div>
-            <div data-aos="fade-left" className={`circleC`}>
+            {/* <div data-aos="fade-left" className={`circleC`}>
               <img
                 src={
                   languages.languages.length === 0 &&
@@ -164,7 +164,7 @@ export default function Header({ children }) {
                 }
                 className={`langImgC`}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>
