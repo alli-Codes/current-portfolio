@@ -55,17 +55,11 @@ export default function Header({ children }) {
         {children}
 
         {/* shows on desktop */}
-        <div className={`w-full py-8 flex justify-center`}>
-          <div className={`max-w-[30rem] h-full `}>
+        <div
+          className={`w-full h-[70vh] py-8 flex justify-center items-center gap-x-10`}
+        >
+          <div className={`max-w-[30rem] h-full flex items-center `}>
             <div className={``}>
-              {/* <span
-                data-aos="fade-up"
-                className={`py-[2px] px-[8px] bg-red-400 text-green-100 rounded-[3px] text-[12px] text-capitalize  `}
-              >
-                {usersInfo.user_skill}
-              </span> */}
-              <br />
-              <br />
               <h1 data-aos="fade-right" className={`text-[3rem]`}>
                 Hi, I am <span className="font-bold text-green-400">Evans</span>
               </h1>
@@ -79,50 +73,15 @@ export default function Header({ children }) {
               </span>
               <br />
             </div>
-            <div
-              className={`relative top-[50px] flex align-start items-start justify-start w-full`}
-            >
-              <div
-                data-aos="zoom-in-left"
-                className={`w-[50%] mr-[20px] flex flex-row items-center justify-start`}
-              >
-                <h1 className={` text-[35px] pt-[10px] pr-[10px] pb-0 pl-0 `}>
-                  {new Date().getFullYear() - parseInt(usersInfo.tech_year)}
-                </h1>
-                <span className={` w-[50px] text-white-300 text-[10px] `}>
-                  Years of Experience
-                </span>
-              </div>
-              <div
-                data-aos="zoom-in-right"
-                className={`w-[50%] mr-[20px] flex flex-row items-center justify-start`}
-              >
-                <h1 className={` text-[35px] pt-[10px] pr-[10px] pb-0 pl-0 `}>
-                  {reposcount}
-                </h1>
-                <span className={` w-[50px] text-white-300 text-[10px] `}>
-                  Projects / Contributions
-                </span>
-              </div>
-            </div>
-            <div className="w-full h-auto mt-[60px]">
-              <br />
-              <button
-                className="w-[150px] border-[2px] border-solid border-green-200 px-5 py-3 bg-dark-100 rounded-[30px] scale-[.90] hover:scale-[.95] transition-all  "
-                onClick={openResume}
-              >
-                View CV
-              </button>
-            </div>
 
             {resumeActive && <ResumeViewer openResume={openResume} />}
           </div>
           <div
             data-aos="fade-left"
-            className={`main w-full h-auto hidden md:block md:w-[50%] relative `}
+            className={` h-auto hidden md:block relative `}
           >
             <div
-              className={`img-cont w-[250px] h-[250px] p-[15vmin] flex flex-col items-center justify-center bg-cover bg-center  rounded-[50%] `}
+              className={`img-cont w-[250px] h-[250px] p-[15vmin] flex flex-col items-center justify-center bg-cover bg-center  rounded `}
             >
               <style jsx>{`
                 .img-cont {
