@@ -5,7 +5,7 @@ import { FaGithub, FaTwitter } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import usersInfo from "../../data/usersInfo.json";
 import { socials } from "../../data/socials.json";
-import avatar from "../../public/images/avatar/avatar.png";
+// import avatar from "../../public/images/avatar/avatar.png";
 
 function NavBar() {
   return (
@@ -78,7 +78,7 @@ function NavBar() {
           </div>
           <div className={`absolute top-[15px] right-[25px] md:hidden `}>
             <img
-              src={avatar.src}
+              src="./images/avatar/avatar"
               className={` w-[40px] rounded-[50%] border-[2px] border-solid border-green-100 bg-dark-100 `}
             />
           </div>

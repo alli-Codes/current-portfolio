@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Container } from "..";
-import userAvatar from "../../public/images/avatar/avatar.png";
 
 import usersInfo from "../../data/usersInfo.json";
 import languages from "../../data/languages.json";
@@ -127,7 +126,7 @@ export default function Header({ children }) {
             >
               <style jsx>{`
                 .img-cont {
-                  background-image: url("${avatar}");
+                  background-image: url("/images/avatar/avatar.jpeg");
                 }
               `}</style>
               {/* <img data-aos="zoom-in-up" src={avatar === "" ? userAvatar.src : avatar} className={`avatar rounded-[50%] `} /> */}
