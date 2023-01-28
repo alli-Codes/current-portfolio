@@ -48,9 +48,7 @@ export default function Header({ children }) {
   }, []);
 
   return (
-    <header
-      className={`header w-full h-[100vh] relative bg-dark-200 md:h-auto`}
-    >
+    <header className={`header w-full h-[100vh] relative md:h-auto`}>
       <Container>
         {children}
 
@@ -61,7 +59,7 @@ export default function Header({ children }) {
           <div className={`max-w-[30rem] h-full flex items-center `}>
             <div className={``}>
               <h1 data-aos="fade-right" className={`text-[3rem]`}>
-                Hi, I am <span className="font-bold text-green-400">Evans</span>
+                Hi, I am <span className="font-bold text-green-800">Evans</span>
               </h1>
               <br />
               <span data-aos="fade-in" className={` text-[1rem] `}>

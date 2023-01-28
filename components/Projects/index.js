@@ -54,7 +54,7 @@ function Projects() {
           data-aos="zoom-in"
           className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
         ></span>
-        <p data-aos="fade-up" className={`text-white-200 text-3xl font-bold`}>
+        <p data-aos="fade-up" className={`text-3xl font-bold`}>
           Projects
         </p>
         <span
