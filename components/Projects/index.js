@@ -71,21 +71,37 @@ function Projects() {
           </a>
         </Link> */}
 
-      <div className="project__wrapper">
-        <div className="project__item w-[20rem] flex flex-col gap-y-2">
-          <div className="project__image h-[14rem] relative rounded overflow-hidden">
-            <img
-              src="images/avatar/avatar.jpeg"
-              className="h-full object-cover"
-            />
-            <button className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl">
-              See more
-            </button>
-          </div>
-          <p className="project__title bg-black p-3 text-center text-sm rounded">
-            Git Find
-          </p>
+      <div className="project__wrapper flex flex-wrap gap-4 justify-center relative">
+        <div className="project__controls w-full flex justify-between px-1 absolute top-0 bottom-0 ">
+          <button className="z-10">
+            <span className="bg-black h-[2rem] w-[2rem] p-4 flex items-center justify-center !text-bold rounded-full">
+              {"<"}
+            </span>
+          </button>
+          <button className="z-10">
+            <span className="bg-black h-[2rem] w-[2rem] p-4 flex items-center justify-center !text-bold rounded-full">
+              {">"}
+            </span>
+          </button>
         </div>
+        {[1, 2].map((item) => {
+          return (
+            <div className="project__item w-[20rem] flex flex-col gap-y-2">
+              <div className="project__image h-[14rem] relative rounded overflow-hidden">
+                <img
+                  src="images/avatar/avatar.jpeg"
+                  className="h-full object-cover"
+                />
+                <button className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl">
+                  See more
+                </button>
+              </div>
+              <p className="project__title bg-black p-3 text-center text-sm rounded">
+                Git Find
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
