@@ -96,7 +96,7 @@ function Projects() {
                   See more
                 </button>
               </div>
-              <p className="project__title bg-black p-3 text-center text-sm rounded">
+              <p className="project__title bg-green-300 p-3 text-center text-sm font-bold rounded">
                 Git Find
               </p>
             </div>
