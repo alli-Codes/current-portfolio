@@ -14,13 +14,15 @@ function Layout({ children }) {
   }, [windowWidth]);
 
   return (
-    <div className={`w-screen something`}>
-      <DomHead />
-      <NavBar />
-      <Header></Header>
-      {children}
-      {windowWidth <= 700 && <ResponsiveNavbar />}
-      {/* <Footer /> */}
+    <div className={`w-screen dark`}>
+      <div className="dark:bg-dark-100 px-8">
+        <DomHead />
+        <NavBar />
+        <Header></Header>
+        {children}
+        {windowWidth <= 700 && <ResponsiveNavbar />}
+        {/* <Footer /> */}
+      </div>
     </div>
   );
 }

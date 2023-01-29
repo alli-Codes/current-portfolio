@@ -47,7 +47,7 @@ function Projects() {
 
   return (
     <div
-      className={`w-full h-auto relative p-24 flex flex-col items-center justify-center gap-y-20`}
+      className={`w-full h-auto dark:text-white-100 relative p-24 flex flex-col items-center justify-center gap-y-20`}
     >
       <div className={`w-full flex flex-row items-center justify-center`}>
         <span

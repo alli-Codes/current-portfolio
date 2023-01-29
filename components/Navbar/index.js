@@ -11,7 +11,7 @@ function NavBar() {
   return (
     <React.Fragment>
       <div
-        className={`navbar w-full mt-4 sticky top-0 bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center py-[20px]`}
+        className={`navbar w-full dark:text-white-100 sticky top-0 bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center py-[20px]`}
       >
         <div className={`w-full max-w-[70rem] flex justify-between`}>
           <div
