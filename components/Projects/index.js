@@ -84,7 +84,7 @@ function Projects() {
             </span>
           </button>
         </div>
-        {[1, 2].map((item) => {
+        {projects.map((item) => {
           return (
             <div className="project__item w-[20rem] flex flex-col gap-y-2">
               <div className="project__image h-[14rem] relative rounded overflow-hidden">
