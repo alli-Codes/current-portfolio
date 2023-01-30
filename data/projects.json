@@ -1,18 +1,14 @@
 {
-    "projects":[
+    "projects": [
         {
-            "title": "Some dummy title",
-            "imageUrl": "",
+            "title": "Git find",
             "project_url": "",
-            "description": "some basi project description",
-            "tags": [ "react", "postgresql", "nodejs" ]
+            "description": "Git find is a web app that let's you search for github users to see their information and projects as well."
         },
         {
-            "title": "Some dummy title",
-            "imageUrl": "",
+            "title": "Git find",
             "project_url": "",
-            "description": "some basi project description",
-            "tags": [ "react", "postgresql", "nodejs" ]
+            "description": "Git find is a web app that let's you search for github users to see their information and projects as well."
         }
     ]
 }
