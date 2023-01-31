@@ -1,10 +1,5 @@
 import { projects } from "../../data/projects.json";
 
-// const changeState = () => {
-//   // modalState = false;
-//   console.log("Hello", modalState);
-// };
-
 function Modal(props) {
   const project = projects[0];
   const { overLayState, changeState } = props;
