@@ -49,6 +49,7 @@ function Projects() {
     <div
       className={`w-full h-auto dark:text-white-100 relative p-24 flex flex-col items-center justify-center gap-y-20`}
     >
+      {/* <Modal /> */}
       <div className={`w-full flex flex-row items-center justify-center`}>
         <span
           data-aos="zoom-in"
@@ -97,7 +98,7 @@ function Projects() {
                 </button>
               </div>
               <p className="project__title bg-green-300 p-3 text-center text-sm font-bold rounded">
-                Git Find
+                {item.title}
               </p>
             </div>
           );
