@@ -5,10 +5,14 @@ import Modal from "../Projects/modal";
 import { ResponsiveNavbar } from "../Navbar";
 
 function Layout({ children }) {
+  let [modalState, updateState] = useState(true);
+  let [overLayState, updateOverLayState] = useState("");
+  const changeState = () => {
+    updateState(false);
+    updateOverLayState(!modalState ? "hidden" : "");
+    console.log("Hello", modalState, overLayState);
+  };
   const [windowWidth, setWindowWidth] = useState(0);
-  // const body = document.querySelector("body");
-  // body.style.overflow = "hidden";
-  // let show = useSatete(f);
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = "hidden";
@@ -21,7 +25,7 @@ function Layout({ children }) {
 
   return (
     <div className={`w-screen dark `}>
-      <Modal />
+      <Modal overLayState={overLayState} changeState={changeState} />
       <div className="dark:bg-dark-100 px-8">
         <DomHead />
         <NavBar />
