@@ -1,4 +1,7 @@
+import { projects } from "../../data/projects.json";
+
 function Modal(id) {
+  const project = projects[0];
   const trucy = true;
   const state = !trucy ? "hidden" : "";
   return (
@@ -13,8 +16,8 @@ function Modal(id) {
             {/* </div> */}
           </section>
           <section className="description__section w-[20rem] py-10 px-5 flex flex-col gap-y-10">
-            <h1>Git Find</h1>
-            <p>A single page appliication built with</p>
+            <h1>{project.title}</h1>
+            <p>{project.description}</p>
           </section>
         </div>
         <button className="absolute bg-white-100 text-blue-400 w-[2rem] h-[2rem] flex items-center justify-center font-bold text-sm rounded-full right-36 top-16">
