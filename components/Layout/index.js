@@ -6,10 +6,13 @@ import { ResponsiveNavbar } from "../Navbar";
 
 function Layout({ children }) {
   const [windowWidth, setWindowWidth] = useState(0);
-  const body = document.querySelector("body");
-  body.style.overflow = "hidden";
+  // const body = document.querySelector("body");
+  // body.style.overflow = "hidden";
   // let show = useSatete(f);
   useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
+
     setWindowWidth(window.innerWidth);
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
