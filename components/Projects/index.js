@@ -6,10 +6,11 @@ import { AiFillGithub } from "react-icons/ai";
 import { projects } from "../../data/projects.json";
 import userInfo from "../../data/usersInfo.json";
 
-function Projects() {
+function Projects(props) {
   const [repo, setRepo] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { changeState, overLayState } = props;
 
   async function fetchRepos() {
     let res;
@@ -90,10 +91,15 @@ function Projects() {
             <div className="project__item w-[20rem] flex flex-col gap-y-2">
               <div className="project__image h-[14rem] relative rounded overflow-hidden">
                 <img
-                  src="images/avatar/avatar.jpeg"
+                  src="/images/projects/newshomepage.jpeg"
                   className="h-full object-cover"
                 />
-                <button className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl">
+                <button
+                  onClick={() => {
+                    changeState();
+                  }}
+                  className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl"
+                >
                   See more
                 </button>
               </div>

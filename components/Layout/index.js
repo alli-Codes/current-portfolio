@@ -4,19 +4,10 @@ import { NavBar, Footer, Header, DomHead } from "..";
 import Modal from "../Projects/modal";
 import { ResponsiveNavbar } from "../Navbar";
 
-function Layout({ children }) {
-  let [modalState, updateState] = useState(true);
-  let [overLayState, updateOverLayState] = useState("");
-  const changeState = () => {
-    updateState(false);
-    updateOverLayState(!modalState ? "hidden" : "");
-    console.log("Hello", modalState, overLayState);
-  };
+function Layout(props) {
+  let { overLayState, children, changeState } = props;
   const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
-
     setWindowWidth(window.innerWidth);
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
