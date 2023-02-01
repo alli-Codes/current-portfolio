@@ -17,7 +17,7 @@ function Layout(props) {
   return (
     <div className={` dark `}>
       <Modal overLayState={overLayState} changeState={changeState} />
-      <div className="dark:bg-dark-100 px-8">
+      <div className="dark:bg-dark-100">
         <DomHead />
         <NavBar />
         <Header></Header>

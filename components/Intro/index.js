@@ -6,7 +6,7 @@ import usersInfo from "../../data/usersInfo.json";
 export default function Intro() {
   const myTools = tools.tools;
   return (
-    <div className={`w-full dark:text-white-100 flex justify-center py-10`}>
+    <div className={`w-full dark:text-white-100 flex justify-center `}>
       <div
         className={`max-w-[70rem] w-full py-4 flex flex-col justify-center items-center gap-4`}
       >

@@ -16,85 +16,85 @@ export default function Header({ children }) {
   }
 
   // fetch github repos count
-  async function getReposCount() {
-    let res;
-    if (localStorage.getItem("repo_counts") === null) {
-      res = await fetch(`https://api.github.com/users/${userName}`);
-      let data = await res.json();
+  // async function getReposCount() {
+  //   let res;
+  //   if (localStorage.getItem("repo_counts") === null) {
+  //     res = await fetch(`https://api.github.com/users/${userName}`);
+  //     let data = await res.json();
 
-      if (data && data.public_repos !== undefined) {
-        const { public_repos, avatar_url } = data;
-        localStorage.setItem("repo_counts", JSON.stringify(public_repos));
-        // store github user avatar
-        localStorage.setItem("github_avatar", JSON.stringify(avatar_url));
-        setReposCount(public_repos);
-      }
-    }
+  //     if (data && data.public_repos !== undefined) {
+  //       const { public_repos, avatar_url } = data;
+  //       localStorage.setItem("repo_counts", JSON.stringify(public_repos));
+  //       // store github user avatar
+  //       localStorage.setItem("github_avatar", JSON.stringify(avatar_url));
+  //       setReposCount(public_repos);
+  //     }
+  //   }
 
-    // get data from cahched localstorage
-    let data = JSON.parse(localStorage.getItem("repo_counts"));
-    let useravatar = JSON.parse(localStorage.getItem("github_avatar"));
+  //   // get data from cahched localstorage
+  //   let data = JSON.parse(localStorage.getItem("repo_counts"));
+  //   let useravatar = JSON.parse(localStorage.getItem("github_avatar"));
 
-    setReposCount(data);
-    setAvatar(useravatar);
+  //   setReposCount(data);
+  //   setAvatar(useravatar);
 
-    return data;
-  }
+  //   return data;
+  // }
 
-  useEffect(() => {
-    (async () => {
-      await getReposCount();
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     await getReposCount();
+  //   })();
+  // }, []);
 
   return (
     <header
-      className={`header dark:bg-dark-200 dark:text-white-100 w-full h-[100vh] relative md:h-auto rounded-xl`}
+      className={` md:px-8 p-8 dark:text-white-100 flex justify-center relative`}
     >
-      <Container>
-        {children}
+      {/* <Container>
+        {children} */}
 
-        {/* shows on desktop */}
-        <div
-          className={`w-full h-[70vh] py-8 flex justify-center items-center gap-x-10`}
-        >
-          <div className={`max-w-[30rem] h-full flex items-center `}>
-            <div className={``}>
-              <h1 data-aos="fade-right" className={`text-[3rem]`}>
-                Hi, I am{" "}
-                <span className="font-bold text-green-800 dark:text-green-400">
-                  Evans
-                </span>
-              </h1>
-              <br />
-              <span data-aos="fade-in" className={` text-[1rem] `}>
-                My name is Evans Allison and I am an experienced Frontend
-                Developer with 4+ years of working experience as a freelancer. I
-                am open to freelancing, remote jobs, and collaboration. You can
-                connect with me with any of my social media handles or send me a
-                message directly from this platform.
-              </span>
-              <br />
-            </div>
-
-            {resumeActive && <ResumeViewer openResume={openResume} />}
-          </div>
-          <div
-            data-aos="fade-left"
-            className={` h-auto hidden md:block relative `}
-          >
-            <div
-              className={`img-cont w-[250px] h-[250px] p-[15vmin] flex flex-col items-center justify-center bg-cover bg-center  rounded `}
+      {/* shows on desktop */}
+      <div
+        className={`w-full md:max-w-[70rem]  rounded-xl lg:dark:bg-dark-200 h-[70vh] py-8 flex flex-col-reverse md:flex-row justify-center items-center self-center gap-10 `}
+      >
+        <div className={`max-w-[30rem] h-full flex items-center `}>
+          <div className={`text-justify`}>
+            <h1
+              data-aos="fade-right"
+              className={`text-[3rem] text-center md:text-left`}
             >
-              <style jsx>{`
-                .img-cont {
-                  background-image: url("/images/avatar/avatar.jpeg");
-                }
-              `}</style>
-              {/* <img data-aos="zoom-in-up" src={avatar === "" ? userAvatar.src : avatar} className={`avatar rounded-[50%] `} /> */}
-            </div>
-            <div data-aos="fade-up" className={`circleA`}>
-              {/* <img
+              Hi, I am{" "}
+              <span className="font-bold text-green-800 dark:text-green-400">
+                Evans
+              </span>
+            </h1>
+            <br />
+            <span data-aos="fade-in" className={` text-[1rem] `}>
+              My name is Evans Allison and I am an experienced Frontend
+              Developer with 4+ years of working experience as a freelancer. I
+              am open to freelancing, remote jobs, and collaboration. You can
+              connect with me with any of my social media handles or send me a
+              message directly from this platform.
+            </span>
+            <br />
+          </div>
+
+          {resumeActive && <ResumeViewer openResume={openResume} />}
+        </div>
+        <div data-aos="fade-left" className={` h-auto relative `}>
+          <div
+            className={`img-cont w-[250px] h-[250px]  flex flex-col items-center justify-center bg-cover bg-center  rounded `}
+          >
+            <style jsx>{`
+              .img-cont {
+                background-image: url("/images/avatar/avatar.jpeg");
+              }
+            `}</style>
+            {/* <img data-aos="zoom-in-up" src={avatar === "" ? userAvatar.src : avatar} className={`avatar rounded-[50%] `} /> */}
+          </div>
+          <div data-aos="fade-up" className={`circleA`}>
+            {/* <img
                 src={
                   languages.languages.length === 0 &&
                   languages.languages.length > 2
@@ -103,9 +103,9 @@ export default function Header({ children }) {
                 }
                 className={`langImgA`}
               /> */}
-            </div>
-            <div data-aos="fade-right" className={`circleB`}>
-              {/* <img
+          </div>
+          <div data-aos="fade-right" className={`circleB`}>
+            {/* <img
                 src={
                   languages.languages.length === 0 &&
                   languages.languages.length > 2
@@ -114,8 +114,8 @@ export default function Header({ children }) {
                 }
                 className={`langImgB`}
               /> */}
-            </div>
-            {/* <div data-aos="fade-left" className={`circleC`}>
+          </div>
+          {/* <div data-aos="fade-left" className={`circleC`}>
               <img
                 src={
                   languages.languages.length === 0 &&
@@ -126,9 +126,9 @@ export default function Header({ children }) {
                 className={`langImgC`}
               />
             </div> */}
-          </div>
         </div>
-      </Container>
+      </div>
+      {/* </Container> */}
     </header>
   );
 }

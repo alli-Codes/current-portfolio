@@ -34,9 +34,9 @@ export default function HomePage() {
           <Intro />
           <Projects changeState={changeState} />
         </Container>
-        <Quote />
-        <Contact />
-        <Footer />
+        {/* <Quote /> */}
+        {/* <Contact /> */}
+        {/* <Footer /> */}
       </Layout>
     </DataContextProvider>
   );
