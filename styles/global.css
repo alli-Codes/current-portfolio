@@ -65,11 +65,11 @@ li{
 }
 
 body{
-    width: 100%;
-    height: 100vh;
+    /* width: 100%; */
+    /* height: 100vh; */
     position: relative;
-    left: 0px;
-    overflow-x: hidden;
+    /* left: 0px; */
+    /* overflow-x: hidden; */
     font-family: var(--poppin);
     /* color: var(--white1); */
     /* background: var(--bg1); */

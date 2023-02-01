@@ -15,7 +15,7 @@ function Layout(props) {
   }, [windowWidth]);
 
   return (
-    <div className={`w-screen dark `}>
+    <div className={` dark `}>
       <Modal overLayState={overLayState} changeState={changeState} />
       <div className="dark:bg-dark-100 px-8">
         <DomHead />
