@@ -5,7 +5,7 @@ import Modal from "../Projects/modal";
 import { ResponsiveNavbar } from "../Navbar";
 
 function Layout(props) {
-  let { overLayState, children, changeState } = props;
+  let { overLayState, children, changeState, index } = props;
   const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -16,7 +16,11 @@ function Layout(props) {
 
   return (
     <div className={` dark `}>
-      <Modal overLayState={overLayState} changeState={changeState} />
+      <Modal
+        overLayState={overLayState}
+        changeState={changeState}
+        index={index}
+      />
       <div className="dark:bg-dark-100">
         <DomHead />
         <NavBar />

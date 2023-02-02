@@ -86,7 +86,7 @@ function Projects(props) {
             </span>
           </button>
         </div>
-        {projects.map((item) => {
+        {projects.map((item, index) => {
           return (
             <div className="project__item w-[20rem] flex flex-col gap-y-2">
               <div className="project__image h-[14rem] relative rounded overflow-hidden">
@@ -96,7 +96,7 @@ function Projects(props) {
                 />
                 <button
                   onClick={() => {
-                    changeState();
+                    changeState(index);
                   }}
                   className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl"
                 >

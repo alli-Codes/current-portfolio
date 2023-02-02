@@ -15,12 +15,13 @@ import { DataContextProvider } from "../context/DataContext";
 export default function HomePage() {
   let [modalState, updateState] = useState(false);
   let [overLayState, updateOverLayState] = useState("hidden");
-  const changeState = () => {
+  let [index, updateIndex] = useState(0);
+  const changeState = (index) => {
     const body = document.querySelector("body");
+    updateIndex(index);
     updateState(!modalState);
     updateOverLayState(!modalState ? "" : "hidden");
     body.style.overflow = !modalState ? "hidden" : "";
-    console.log("Hello", modalState, overLayState);
   };
   useEffect(() => {
     Aos.init({ duration: "1000" });
@@ -29,7 +30,11 @@ export default function HomePage() {
   return (
     <DataContextProvider>
       <DomHead />
-      <Layout overLayState={overLayState} changeState={changeState}>
+      <Layout
+        overLayState={overLayState}
+        changeState={changeState}
+        index={index}
+      >
         <Container>
           <Intro />
           <Projects changeState={changeState} />
