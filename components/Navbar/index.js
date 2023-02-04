@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import Link from "next/link";
-import { FaGithub, FaTwitter } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
+import { Icon } from "@iconify/react";
+// import { FaGithub, FaTwitter } from "react-icons/fa";
+// import { FiMail } from "react-icons/fi";
 import usersInfo from "../../data/usersInfo.json";
 import { socials } from "../../data/socials.json";
 // import avatar from "../../public/images/avatar/avatar.png";
@@ -52,7 +53,7 @@ function NavBar() {
                   target="_blank"
                   className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
                 >
-                  <FaTwitter className={``} />
+                  <Icon icon="line-md:twitter" />
                 </a>
               )}
 
@@ -62,7 +63,7 @@ function NavBar() {
                   target="_blank"
                   className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
                 >
-                  <FaGithub className={``} />
+                  <Icon icon="line-md:github-loop" />
                 </a>
               )}
 
@@ -71,16 +72,10 @@ function NavBar() {
                   href={`mailto:${socials["email"]}`}
                   className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
                 >
-                  <FiMail className={`icon mail`} />
+                  <Icon icon="line-md:linkedin" />
                 </a>
               )}
             </ul>
-          </div>
-          <div className={`absolute top-[15px] right-[25px] md:hidden `}>
-            <img
-              src="./images/avatar/avatar"
-              className={` w-[40px] rounded-[50%] border-[2px] border-solid border-green-100 bg-dark-100 `}
-            />
           </div>
         </div>
       </div>
@@ -108,50 +103,50 @@ export function ResponsiveNavbar({ activePage, pageName = "" }) {
     setActive(name);
   }
 
-  return (
-    <div className={`mobileNav`}>
-      <div className={`main`}>
-        <li
-          className={active === "home" ? `active` : `li`}
-          data-name="home"
-          onClick={handleActive}
-        >
-          <Link href="/">
-            <ion-icon name="home-outline" class={`icon`}></ion-icon>
-          </Link>
-          <label className={`label`}>Home</label>
-        </li>
-        <li
-          className={active === "projects" ? `active` : `li`}
-          data-name="projects"
-          onClick={handleActive}
-        >
-          <Link href="/projects">
-            <ion-icon name="cube-outline" class={`icon`}></ion-icon>
-          </Link>
-          <label className={`label`}>Projects</label>
-        </li>
-        <li
-          className={active === "about" ? `active` : `li`}
-          data-name="about"
-          onClick={handleActive}
-        >
-          <Link href="/about">
-            <ion-icon name="person-outline" class={`icon`}></ion-icon>
-          </Link>
-          <label className={`label`}>About</label>
-        </li>
-        <li
-          className={active === "contact" ? `active mr-5` : `li mr-5`}
-          data-name="contact"
-          onClick={handleActive}
-        >
-          <Link href={pageName === "" ? "#contact" : "/#contact"}>
-            <ion-icon name="mail-outline" class={`icon`}></ion-icon>
-          </Link>
-          <label className={`label`}>Contact</label>
-        </li>
-      </div>
-    </div>
-  );
+  // return (
+  //   <div className={`mobileNav`}>
+  //     <div className={`main`}>
+  //       <li
+  //         className={active === "home" ? `active` : `li`}
+  //         data-name="home"
+  //         onClick={handleActive}
+  //       >
+  //         <Link href="/">
+  //           <ion-icon name="home-outline" class={`icon`}></ion-icon>
+  //         </Link>
+  //         <label className={`label`}>Home</label>
+  //       </li>
+  //       <li
+  //         className={active === "projects" ? `active` : `li`}
+  //         data-name="projects"
+  //         onClick={handleActive}
+  //       >
+  //         <Link href="/projects">
+  //           <ion-icon name="cube-outline" class={`icon`}></ion-icon>
+  //         </Link>
+  //         <label className={`label`}>Projects</label>
+  //       </li>
+  //       <li
+  //         className={active === "about" ? `active` : `li`}
+  //         data-name="about"
+  //         onClick={handleActive}
+  //       >
+  //         <Link href="/about">
+  //           <ion-icon name="person-outline" class={`icon`}></ion-icon>
+  //         </Link>
+  //         <label className={`label`}>About</label>
+  //       </li>
+  //       <li
+  //         className={active === "contact" ? `active mr-5` : `li mr-5`}
+  //         data-name="contact"
+  //         onClick={handleActive}
+  //       >
+  //         <Link href={pageName === "" ? "#contact" : "/#contact"}>
+  //           <ion-icon name="mail-outline" class={`icon`}></ion-icon>
+  //         </Link>
+  //         <label className={`label`}>Contact</label>
+  //       </li>
+  //     </div>
+  //   </div>
+  // );
 }

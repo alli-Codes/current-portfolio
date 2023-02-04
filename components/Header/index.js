@@ -56,13 +56,13 @@ export default function Header({ children }) {
 
       {/* shows on desktop */}
       <div
-        className={`w-full md:max-w-[70rem]  rounded-xl lg:dark:bg-dark-200 h-[70vh] py-8 flex flex-col-reverse md:flex-row justify-center items-center self-center gap-10 `}
+        className={`w-full md:max-w-[70rem]  rounded-xl lg:dark:bg-dark-200 md:h-[70vh] py-8 flex flex-col-reverse md:flex-row justify-center items-center self-center gap-10 `}
       >
         <div className={`max-w-[30rem] h-full flex items-center `}>
           <div className={`text-justify`}>
             <h1
               data-aos="fade-right"
-              className={`text-[3rem] text-center md:text-left`}
+              className={`text-[2rem] md:text-[3rem] text-center md:text-left`}
             >
               Hi, I am{" "}
               <span className="font-bold text-green-800 dark:text-green-400">
@@ -70,7 +70,7 @@ export default function Header({ children }) {
               </span>
             </h1>
             <br />
-            <span data-aos="fade-in" className={` text-[1rem] `}>
+            <span data-aos="fade-in" className={`text-sm md:text-[1rem] `}>
               My name is Evans Allison and I am an experienced Frontend
               Developer with 4+ years of working experience as a freelancer. I
               am open to freelancing, remote jobs, and collaboration. You can
@@ -84,7 +84,7 @@ export default function Header({ children }) {
         </div>
         <div data-aos="fade-left" className={` h-auto relative `}>
           <div
-            className={`img-cont w-[250px] h-[250px]  flex flex-col items-center justify-center bg-cover bg-center  rounded `}
+            className={`img-cont w-[250px] h-[250px]  flex flex-col items-center justify-center bg-cover bg-center  rounded-full md:rounded `}
           >
             <style jsx>{`
               .img-cont {

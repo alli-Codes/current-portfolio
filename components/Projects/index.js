@@ -88,10 +88,10 @@ function Projects(props) {
         </div>
         {projects.map((item, index) => {
           return (
-            <div className="project__item w-[20rem] flex flex-col gap-y-2">
+            <div className="project__item w-[20rem] px-4 flex flex-col gap-y-2">
               <div className="project__image h-[14rem] relative rounded overflow-hidden">
                 <img
-                  src="/images/projects/newshomepage.jpeg"
+                  src={`/images/projects/${item.image_url}`}
                   className="h-full object-cover"
                 />
                 <button
@@ -103,7 +103,7 @@ function Projects(props) {
                   See more
                 </button>
               </div>
-              <p className="project__title bg-green-300 p-3 text-center text-sm font-bold rounded">
+              <p className="project__title bg-dark-300 p-3 text-center text-sm font-bold rounded">
                 {item.title}
               </p>
             </div>
