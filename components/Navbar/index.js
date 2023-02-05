@@ -8,37 +8,33 @@ import usersInfo from "../../data/usersInfo.json";
 import { socials } from "../../data/socials.json";
 // import avatar from "../../public/images/avatar/avatar.png";
 
-function NavBar() {
+function NavBar(props) {
+  let { show, toggleSidebar } = props;
   return (
     <React.Fragment>
       <div
-        className={`navbar w-full dark:text-white-100 sticky top-0 bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center py-[20px]`}
+        className={`navbar w-full dark:text-white-100 sticky bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center px-5 py-[20px]`}
       >
         <div className={`w-full max-w-[70rem] flex justify-between`}>
-          <div
-            className={`left w-auto flex align-start items-start justify-center px-[10px] `}
-          >
-            <p className={`font-extrabold text-lg`}>Evans</p>
-          </div>
+          <p className={`font-extrabold text-lg`}>Evans</p>
 
-          <ul className={`relative self-center ml-[10px] hidden md:flex`}>
+          <button onClick={() => toggleSidebar(!show)}>|||</button>
+
+          <ul className={`hidden md:flex gap-4`}>
             <li
-              className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
-            >
-              <Link href="/">Home</Link>
-            </li>
-            <li
-              className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
+              className={` transition-all hover:text-green-100 cursor-pointer text-[.8rem]`}
             >
               <Link href="/about">About</Link>
             </li>
+
             <li
-              className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
+              className={` transition-all hover:text-green-100 cursor-pointer text-[.8rem]`}
             >
-              <Link href="/projects">Projects</Link>
+              <Link href="/project">Projects</Link>
             </li>
+
             <li
-              className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}
+              className={` transition-all hover:text-green-100 cursor-pointer text-[.8rem]`}
             >
               <Link href="#contact">Contact</Link>
             </li>
