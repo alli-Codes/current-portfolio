@@ -1,11 +1,16 @@
+import { useEffect } from "react";
 import { Icon } from "@iconify/react";
 
 const Sidebar = function (props) {
   let { show, toggleSidebar } = props;
+  useEffect(() => {
+    let body = document.querySelector("body");
+    body.style.overflow = show ? "hidden" : "";
+  });
   return (
     <div
-      className={`overlay bg-dark-100 h-[100vh] w-full flex justify-end fixed z-[10000] ${
-        show ? "flex" : "hidden"
+      className={`overlay bg-[#1d1d1d9c] h-[100vh] w-full flex justify-end fixed z-[10000] ${
+        show ? "overlay__show" : "overlay__hide"
       }`}
     >
       <button
@@ -14,7 +19,11 @@ const Sidebar = function (props) {
       >
         X
       </button>
-      <div className="sidebar w-full max-w-[15rem] bg-white-100 py-10 flex flex-col justify-between">
+      <div
+        className={`sidebar w-full max-w-[15rem] bg-white-100 py-10 flex flex-col justify-between ${
+          show ? "slide__in" : "slide__out"
+        }`}
+      >
         <div className="links flex flex-col gap-y-2 py-10 px-5">
           <a className="bg-green-400 p-3 rounded-full">About</a>
           <a className="p-3 rounded-full">Projects</a>

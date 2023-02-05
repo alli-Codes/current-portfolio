@@ -7,13 +7,7 @@ import { ResponsiveNavbar } from "../Navbar";
 
 function Layout(props) {
   let { overLayState, children, changeState, index } = props;
-  // let show = true;
-  // const toggleSidebar = () => {
-  //   show = !show;
-  //   console.log(show);
-  // };
   let [show, toggleSidebar] = useState(false);
-  // toggleSidebar(!show)
   const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
     setWindowWidth(window.innerWidth);
