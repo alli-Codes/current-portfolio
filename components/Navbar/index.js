@@ -18,7 +18,12 @@ function NavBar(props) {
         <div className={`w-full max-w-[70rem] flex justify-between`}>
           <p className={`font-extrabold text-lg`}>Evans</p>
 
-          <button onClick={() => toggleSidebar(!show)}>|||</button>
+          <button
+            className="flex md:hidden"
+            onClick={() => toggleSidebar(!show)}
+          >
+            |||
+          </button>
 
           <ul className={`hidden md:flex gap-4`}>
             <li

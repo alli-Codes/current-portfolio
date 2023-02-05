@@ -98,6 +98,7 @@ function Projects(props) {
                 <button
                   onClick={() => {
                     changeState(index);
+                    console.log("Hey");
                   }}
                   className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl"
                 >
