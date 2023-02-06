@@ -5,7 +5,6 @@ import { Icon } from "@iconify/react";
 // import { FaGithub, FaTwitter } from "react-icons/fa";
 // import { FiMail } from "react-icons/fi";
 import usersInfo from "../../data/usersInfo.json";
-import { socials } from "../../data/socials.json";
 // import avatar from "../../public/images/avatar/avatar.png";
 
 function NavBar(props) {
@@ -48,34 +47,15 @@ function NavBar(props) {
             className={`relative px-4 bg-[#0000002b] rounded-full hidden md:flex `}
           >
             <ul className={`flex flex-row gap-3`}>
-              {socials["twitter"] !== "" && (
-                <a
-                  href={socials["twitter"]}
-                  target="_blank"
-                  className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
-                >
-                  <Icon icon="line-md:twitter" />
-                </a>
-              )}
-
-              {socials["github"] !== "" && (
-                <a
-                  href={socials["github"]}
-                  target="_blank"
-                  className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
-                >
-                  <Icon icon="line-md:github-loop" />
-                </a>
-              )}
-
-              {socials["email"] !== "" && (
-                <a
-                  href={`mailto:${socials["email"]}`}
-                  className={`flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}
-                >
-                  <Icon icon="line-md:linkedin" />
-                </a>
-              )}
+              <a href="" target="_blank">
+                <Icon icon="line-md:twitter" />
+              </a>
+              <a href="" target="_blank">
+                <Icon icon="line-md:github-loop" />
+              </a>
+              <a href="">
+                <Icon icon="line-md:linkedin" />
+              </a>
             </ul>
           </div>
         </div>
