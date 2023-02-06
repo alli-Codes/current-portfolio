@@ -2,15 +2,30 @@
     "projects": [
         {
             "title": "Nengieve Integrated Services",
-            "image_url": "nengieve.png",
+            "image_url": [
+                "nengieve.png",
+                "nengieve_2.png"
+            ],
             "project_url": "",
             "description": "Git find is a web app that let's you search for github users to see their information and projects as well."
         },
         {
             "title": "News Lading-page",
-            "image_url": "newshomepage.jpeg",
+            "image_url": [
+                "newshomepage.jpeg",
+                "newshomepage.jpeg"
+            ],
             "project_url": "",
-            "description": "News Landing-page is a single and very simple fictional webpage. It was developed from a design I got from Frontend Mentors as a challenge. This was simply built with HTML, CSS and JavaScript without any library or framework.bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            "description": "News Landing-page is a single and very simple fictional webpage. It was developed from a design I got from Frontend Mentors as a challenge. This was simply built with HTML, CSS and JavaScript without any library or framework."
+        },
+        {
+            "title": "Nengieve Integrated Services",
+            "image_url": [
+                "nengieve.png",
+                "nengieve.png"
+            ],
+            "project_url": "",
+            "description": "Git find is a web app that let's you search for github users to see their information and projects as well."
         }
     ]
 }

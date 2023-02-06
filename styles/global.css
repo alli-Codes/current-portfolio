@@ -138,3 +138,17 @@ body{
         visibility: hidden;
     }
 }
+
+.swiper .swiper-button-prev::after, .swiper .swiper-button-next::after {
+    background-color: black;
+    color: white;
+    height: 2rem;
+    width: 2rem;
+    padding: 1rem;
+    border-radius:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+}

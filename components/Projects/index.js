@@ -6,6 +6,11 @@ import { AiFillGithub } from "react-icons/ai";
 import { projects } from "../../data/projects.json";
 import userInfo from "../../data/usersInfo.json";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
+
 function Projects(props) {
   const [repo, setRepo] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -74,8 +79,8 @@ function Projects(props) {
           </a>
         </Link> */}
 
-      <div className="project__wrapper flex flex-wrap gap-4 justify-center relative">
-        <div className="project__controls w-full flex justify-between px-1 absolute top-0 bottom-0 ">
+      <div className="project__wrapper max-w-[50rem] flex flex-wrap gap-4 justify-center relative">
+        {/* <div className="project__controls w-full flex justify-between px-1 absolute top-0 bottom-0 ">
           <button className="z-10">
             <span className="bg-black h-[2rem] w-[2rem] p-4 flex items-center justify-center !text-bold rounded-full">
               {"<"}
@@ -86,31 +91,42 @@ function Projects(props) {
               {">"}
             </span>
           </button>
-        </div>
-        {projects.map((item, index) => {
-          return (
-            <div className="project__item w-[20rem] px-4 flex flex-col gap-y-2">
-              <div className="project__image h-[14rem] relative rounded overflow-hidden">
-                <img
-                  src={`/images/projects/${item.image_url}`}
-                  className="h-full object-cover"
-                />
-                <button
-                  onClick={() => {
-                    changeState(index);
-                    console.log("Hey");
-                  }}
-                  className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl"
-                >
-                  See more
-                </button>
-              </div>
-              <p className="project__title bg-dark-300 p-3 text-center text-sm font-bold rounded">
-                {item.title}
-              </p>
-            </div>
-          );
-        })}
+        </div> */}
+        <Swiper
+          slidesPerView={2}
+          spaceBetween={0}
+          className={`h-full flex justify-center`}
+          navigation={true}
+          pagination={true}
+          modules={[Navigation, Pagination]}
+        >
+          {projects.map((item, index) => {
+            return (
+              <SwiperSlide className="project__item px-4 !flex !justify-center gap-y-2">
+                <div className="w-[20rem]">
+                  <div className="project__image h-[14rem] relative rounded !overflow-hidden">
+                    <img
+                      src={`/images/projects/${item.image_url[0]}`}
+                      className="h-full object-cover"
+                    />
+                    <button
+                      onClick={() => {
+                        changeState(index);
+                        console.log("Hey");
+                      }}
+                      className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl"
+                    >
+                      See more
+                    </button>
+                  </div>
+                  <p className="project__title bg-dark-300 p-3 text-center text-sm font-bold rounded">
+                    {item.title}
+                  </p>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );
