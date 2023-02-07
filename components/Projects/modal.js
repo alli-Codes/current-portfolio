@@ -49,7 +49,7 @@ function Modal(props) {
               <h1 className="text-3xl md:text-3xl text-green-800 font-bold">
                 {project.title}
               </h1>
-              <p className="">{project.description}</p>
+              <p className="text-justify ">{project.description}</p>
             </section>
           </div>
           <button

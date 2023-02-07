@@ -133,14 +133,14 @@ function Projects(props) {
                   <div className="project__image h-[14rem] relative rounded !overflow-hidden">
                     <img
                       src={`/images/projects/${item.image_url[0]}`}
-                      className="h-full object-cover"
+                      className="h-full w-full object-cover"
                     />
                     <button
                       onClick={() => {
                         changeState(index);
                         console.log("Hey");
                       }}
-                      className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl"
+                      className="bg-green-100 text-black absolute bottom-2 right-2 rounded-lg p-2 text-xs !font-bold "
                     >
                       See more
                     </button>

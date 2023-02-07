@@ -4,13 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-@font-face {
-    font-family: Poppin;
-    src: url("../public/fonts/Poppins.ttf");
-}
 
-@font-face {
+/* @font-face {
+    font-family: Poppin;
+    src: url("../public/fonts/Poppins-Regular.ttf");
+} */
+
+/* @font-face {
     font-family: FiraCode;
     src: url("../public/fonts/FiraCode.ttf");
 }
@@ -18,8 +18,8 @@
 @font-face {
     font-family: Cario;
     src: url("../public/fonts/Cairo-Light.ttf");
-}
- */
+} */
+
 
 
 :root{
@@ -70,7 +70,7 @@ li{
 
 body{
     position: relative;
-    font-family: var(--poppin);
+    /* font-family: var(--poppin); */
     /* color: var(--white1); */
     /* background: var(--bg1); */
 }
