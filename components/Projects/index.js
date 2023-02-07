@@ -79,19 +79,45 @@ function Projects(props) {
           </a>
         </Link> */}
 
-      <div className="project__wrapper max-w-[50rem] flex flex-wrap gap-4 justify-center relative">
-        {/* <div className="project__controls w-full flex justify-between px-1 absolute top-0 bottom-0 ">
-          <button className="z-10">
-            <span className="bg-black h-[2rem] w-[2rem] p-4 flex items-center justify-center !text-bold rounded-full">
-              {"<"}
-            </span>
-          </button>
-          <button className="z-10">
-            <span className="bg-black h-[2rem] w-[2rem] p-4 flex items-center justify-center !text-bold rounded-full">
-              {">"}
-            </span>
-          </button>
-        </div> */}
+      <div className="project__wrapper max-w-[20rem] flex md:hidden flex-wrap gap-4 justify-center relative">
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={0}
+          className={`h-full flex justify-center`}
+          navigation={true}
+          pagination={true}
+          modules={[Navigation, Pagination]}
+        >
+          {projects.map((item, index) => {
+            return (
+              <SwiperSlide className="project__item px-4 !flex !justify-center gap-y-2">
+                <div className="w-[20rem]">
+                  <div className="project__image h-[14rem] relative rounded !overflow-hidden">
+                    <img
+                      src={`/images/projects/${item.image_url[0]}`}
+                      className="h-full object-cover"
+                    />
+                    <button
+                      onClick={() => {
+                        changeState(index);
+                        console.log("Hey");
+                      }}
+                      className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl"
+                    >
+                      See more
+                    </button>
+                  </div>
+                  <p className="project__title bg-dark-300 p-3 text-center text-sm font-bold rounded">
+                    {item.title}
+                  </p>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+
+      <div className="project__wrapper max-w-[50rem] hidden md:flex flex-wrap gap-4 justify-center relative">
         <Swiper
           slidesPerView={2}
           spaceBetween={0}
