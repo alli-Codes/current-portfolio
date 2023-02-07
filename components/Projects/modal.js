@@ -16,13 +16,13 @@ function Modal(props) {
   return (
     <>
       <div
-        className={`overlay h-full w-full bg-[#00f97c14] px-5 flex justify-center items-center fixed z-[10000] ${overLayState}`}
+        className={`overlay h-full w-full bg-[#00f97c14] px-5 flex justify-center md:items-center fixed z-[10000] ${overLayState}`}
       >
-        <div className="relative md:h-[80vh] w-full md:w-[80%] md:max-w-[70vw]  ">
-          <div className="modal bg-white-100 w-full h-full  flex flex-col md:flex-row rounded-lg overflow-hidden relative">
-            <section className="bg-black max-w-[40rem] image__section flex items-center">
+        <div className="relative h-full md:h-[80vh] w-full flex items-center max-w-[70vw] lg:max-w-[75rem]  ">
+          <div className="modal bg-white-100 w-full h-full max-h-[80vh] flex flex-col lg:flex-row rounded-lg overflow-hidden relative">
+            <section className="bg-black max-w-[70vw] lg:max-w-[50rem] image__section flex items-center">
               <Swiper
-                className=" h-full"
+                className=" h-full w-full max-h-[40vh] lg:max-h-[100vh]"
                 slidesPerView={1}
                 spaceBetween={0}
                 navigation={true}
@@ -32,14 +32,12 @@ function Modal(props) {
                 {project.image_url.map((image_url) => {
                   return (
                     // <>
-                    <SwiperSlide className="!h-full !flex items-center">
-                      <section className="w-full ">
-                        {/* <div> */}
+                    <SwiperSlide className="!h-full !w-full !flex items-center">
+                      <section className="w-full h-full">
                         <img
                           src={`/images/projects/${image_url}`}
-                          className="!h-full !w-full object-cover"
+                          className="h-full !w-full object-cover"
                         />
-                        {/* </div> */}
                       </section>
                     </SwiperSlide>
                     // </>
@@ -47,18 +45,18 @@ function Modal(props) {
                 })}
               </Swiper>
             </section>
-            <section className="description__section md:w-[20rem] py-10 px-5 flex flex-col gap-y-4 mx:gap-y-10 overflow-auto ">
-              <h1 className="text-2xl md:text-4xl text-green-800 font-bold">
+            <section className="description__section h-full py-10 px-5 flex flex-col gap-y-4 mx:gap-y-10 overflow-y-auto break-words">
+              <h1 className="text-3xl md:text-3xl text-green-800 font-bold">
                 {project.title}
               </h1>
-              <p className="break-all">{project.description}</p>
+              <p className="">{project.description}</p>
             </section>
           </div>
           <button
             onClick={() => {
               changeState();
             }}
-            className="absolute bg-white-100  w-[2rem] h-[2rem] flex items-center justify-center font-bold text-sm rounded-full right-3 top-3 md:right-[-3rem] md:top-0"
+            className="absolute top-24 right-4 z-[1000] bg-white-100  w-[2rem] h-[2rem] flex items-center justify-center font-bold text-sm rounded-full md:right-3 md:top-3 md:right-[-3rem] md:top-0"
           >
             X
           </button>
