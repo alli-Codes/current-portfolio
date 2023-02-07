@@ -1,10 +1,4 @@
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { FaStar, FaArrowRight, FaQuoteRight } from "react-icons/fa";
-import { AiFillGithub } from "react-icons/ai";
-
 import { projects } from "../../data/projects.json";
-import userInfo from "../../data/usersInfo.json";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,44 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 
 function Projects(props) {
-  const [repo, setRepo] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const { changeState, overLayState } = props;
-
-  async function fetchRepos() {
-    let res;
-    let url = `https://api.github.com/users/${userInfo.github_username}/repos`;
-    if (localStorage.getItem("user_repos") === null) {
-      try {
-        setLoading(true);
-        res = await fetch(url);
-        let data = await res.json();
-        setLoading(false);
-        if (data && data.length > 0) {
-          localStorage.setItem("user_repo", JSON.stringify(data));
-          setRepo(data);
-          return;
-        }
-        setLoading(false);
-        setError(`No github repos found.`);
-      } catch (err) {
-        console.error(`FAILED: ${err.message}`);
-        setLoading(false);
-        setError(`Failed fetching repo: ${err.message}`);
-      }
-    }
-
-    let userReopos = JSON.parse(localStorage.getItem("user_repos"));
-
-    setRepo(userReopos);
-  }
-
-  useEffect(() => {
-    (async () => {
-      await fetchRepos();
-    })();
-  }, []);
 
   return (
     <div
@@ -70,14 +27,6 @@ function Projects(props) {
           className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
         ></span>
       </div>
-      {/* <Link href="/projects">
-          <a
-            data-aos="zoom-in-up"
-            className={`text-center text-green-200 underline absolute top-[50px] text-[14px]`}
-          >
-            All Projects
-          </a>
-        </Link> */}
 
       <div className="project__wrapper max-w-[20rem] flex md:hidden flex-wrap gap-4 justify-center relative">
         <Swiper
@@ -159,71 +108,3 @@ function Projects(props) {
 }
 
 export default Projects;
-
-function GithubRepo({ repos }) {
-  return (
-    <>
-      {repos.length > 0
-        ? repos.slice(0, 3).map((rep, i) => {
-            return (
-              <div
-                data-aos="zoom-in"
-                key={i}
-                className="relative w-full h-[180px] bg-dark-200 flex flex-col items-start justify-start px-4 py-3 mt-2 rounded-md md:w-[300px] "
-              >
-                <h2 className="w-full text-[20px] ">{rep.name}</h2>
-                <br />
-                <p className=" w-full text-[15px] text-white-300 ">
-                  {rep.description && rep.description.length > 50
-                    ? rep.description.slice(0, 60) + "...."
-                    : rep.description}
-                </p>
-                <br />
-                <div className="ratings absolute bottom-4 w-full flex flex-row items-start justify-start">
-                  <span className="mr-2 flex flex-row items-start justify-start">
-                    <StarRatings title="star" count={rep.stargazers_count} />
-                  </span>
-                  <span className="mr-2 flex flex-row items-start justify-start">
-                    <StarRatings title="fork" count={rep.forks} />
-                  </span>
-                </div>
-
-                <a
-                  href={rep.html_url}
-                  target={"_blank"}
-                  className="absolute right-3 top-2 flex flex-row items-center"
-                >
-                  <small className="underline">View</small>
-                  <FaArrowRight className="ml-2 text-[12px] " />
-                </a>
-              </div>
-            );
-          })
-        : "Opps, No Github Repo was found."}
-    </>
-  );
-}
-
-function StarRatings({ count = 1, size = 3, title = "star" }) {
-  return (
-    <>
-      {title === "star" ? (
-        Array(3)
-          .fill(3)
-          .slice(0, 3)
-          .map((i) => {
-            return (
-              <FaStar
-                key={i * Math.floor(Math.random() * 1000)}
-                className={`text-green-200 text-[${size}px] `}
-              />
-            );
-          })
-      ) : (
-        <AiFillGithub className={`text-green-200 text-[${size}px] `} />
-      )}
-      <small className="ml-2 text-white-200 font-extrabold">{count}</small>
-      <small className="ml-2 text-white-200">{title}</small>
-    </>
-  );
-}
