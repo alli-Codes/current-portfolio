@@ -18,11 +18,11 @@ function Modal(props) {
       <div
         className={`overlay h-full w-full bg-[#00f97c14] px-5 flex justify-center md:items-center fixed z-[10000] ${overLayState}`}
       >
-        <div className="relative h-full md:h-[80vh] w-full flex items-center max-w-[70vw] lg:max-w-[75rem]  ">
-          <div className="modal bg-white-100 w-full h-full max-h-[80vh] flex flex-col lg:flex-row rounded-lg overflow-hidden relative">
-            <section className="bg-black max-w-[70vw] lg:max-w-[50rem] image__section flex items-center">
+        <div className="relative flex items-center">
+          <div className="modal bg-white-100 h-full h-[80vh]  flex flex-col lg:flex-row rounded-lg overflow-hidden relative">
+            <section className="bg-black h-full max-w-[40rem] image__section flex items-center">
               <Swiper
-                className=" h-full w-full max-h-[40vh] lg:max-h-[100vh]"
+                className="h-full w-full"
                 slidesPerView={1}
                 spaceBetween={0}
                 navigation={true}
@@ -32,11 +32,11 @@ function Modal(props) {
                 {project.image_url.map((image_url) => {
                   return (
                     // <>
-                    <SwiperSlide className="!h-full !w-full !flex items-center">
-                      <section className="w-full h-full">
+                    <SwiperSlide className="!h-full">
+                      <section className="w-full h-full flex justify-center items-center ">
                         <img
                           src={`/images/projects/${image_url}`}
-                          className="h-full !w-full object-cover"
+                          className="h-full w-full object-cover"
                         />
                       </section>
                     </SwiperSlide>
@@ -45,8 +45,8 @@ function Modal(props) {
                 })}
               </Swiper>
             </section>
-            <section className="description__section h-full py-10 px-5 flex flex-col gap-y-4 mx:gap-y-10 overflow-y-auto break-words">
-              <h1 className="text-3xl md:text-3xl text-green-800 font-bold">
+            <section className="description__section max-w-[20rem] h-full py-10 px-5 flex flex-col gap-y-4 md:gap-y-10 overflow-y-auto break-words">
+              <h1 className="text-3xl md:text-3xl text-green-800 font-extrabold">
                 {project.title}
               </h1>
               <p className="text-justify ">{project.description}</p>
