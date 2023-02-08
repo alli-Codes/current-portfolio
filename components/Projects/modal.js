@@ -19,8 +19,8 @@ function Modal(props) {
         className={`overlay h-full w-full bg-[#00f97c14] px-5 flex justify-center md:items-center fixed z-[10000] ${overLayState}`}
       >
         <div className="relative flex items-center px-5 ">
-          <div className="modal bg-white-100 h-auto md:h-[80vh] flex flex-col lg:flex-row rounded-lg overflow-hidden relative">
-            <section className="bg-black h-full  w-full max-w-[15rem] lg:max-w-[40rem] image__section flex items-center overflow-hidden">
+          <div className="modal bg-white-100 h-auto md:h-[80vh] max-w-[50vw] lg:max-w-[70rem] flex flex-col lg:flex-row rounded-lg overflow-hidden relative">
+            <section className="bg-black h-full  w-full  lg:max-w-[40rem] image__section flex items-center overflow-hidden">
               <Swiper
                 className="h-full w-full"
                 slidesPerView={1}
