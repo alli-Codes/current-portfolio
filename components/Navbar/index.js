@@ -21,7 +21,7 @@ function NavBar(props) {
             className="flex md:hidden"
             onClick={() => toggleSidebar(!show)}
           >
-            |||
+            <Icon icon="mdi:menu" width={24} />
           </button>
 
           <ul className={`hidden md:flex gap-4`}>

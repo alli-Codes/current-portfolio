@@ -14,10 +14,10 @@ const Sidebar = function (props) {
       }`}
     >
       <button
-        className="text-red-400 bg-dark-100 h-[1rem] w-[1rem] p-4 m-4 flex justify-center items-center rounded-full absolute top-0 right-0"
+        className=" bg-dark-100 p-1 m-4 rounded-full z-[1000] absolute top-0 right-0"
         onClick={() => toggleSidebar(!show)}
       >
-        X
+        <Icon icon="mdi:close-thick" width={20} color="white" />
       </button>
       <div
         className={`sidebar w-full max-w-[15rem] bg-white-100 py-10 flex flex-col justify-between ${
