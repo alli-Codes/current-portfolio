@@ -12,7 +12,7 @@ function Modal(props) {
   const project = projects[i];
   useEffect(() => {
     let body = document.querySelector("body");
-    body.style.overflow = "hidden";
+    // body.style.overflow = "hidden";
     console.log("I am here.");
   });
   return (
