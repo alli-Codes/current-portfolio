@@ -17,11 +17,9 @@ export default function HomePage() {
   let [overLayState, updateOverLayState] = useState("hidden");
   let [index, updateIndex] = useState(0);
   const changeState = (index) => {
-    const body = document.querySelector("body");
     updateIndex(index);
     updateState(!modalState);
     updateOverLayState(!modalState ? "" : "hidden");
-    body.style.overflow = !modalState ? "hidden" : "";
   };
   useEffect(() => {
     Aos.init({ duration: "1000" });

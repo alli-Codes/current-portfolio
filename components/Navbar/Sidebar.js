@@ -5,7 +5,7 @@ const Sidebar = function (props) {
   let { show, toggleSidebar } = props;
   useEffect(() => {
     let body = document.querySelector("body");
-    body.style.overflow = show ? "hidden" : "";
+    // body.style.overflow = show ? "hidden" : "";
   });
   return (
     <div

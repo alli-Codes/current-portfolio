@@ -49,7 +49,9 @@ function Projects(props) {
                     <button
                       onClick={() => {
                         changeState(index);
-                        console.log("Hey");
+                        // const body = document.querySelector("body");
+                        // body.style.overflow = "hidden";
+                        // console.log(body);
                       }}
                       className="bg-white-100 text-black absolute bottom-1 right-1 rounded-lg p-2 text-xs !font-bold shadow-3xl"
                     >
