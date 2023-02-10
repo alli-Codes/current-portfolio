@@ -22,7 +22,7 @@ function Layout(props) {
         changeState={changeState}
         index={index}
       />
-      <div className="dark:bg-dark-100">
+      <div className="transition-all dark:bg-dark-100">
         <DomHead />
         <Sidebar show={show} toggleSidebar={toggleSidebar} />
         <NavBar

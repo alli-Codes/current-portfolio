@@ -39,7 +39,7 @@ export default function HomePage() {
           <Contact />
         </Container>
         {/* <Quote /> */}
-        {/* <Footer /> */}
+        <Footer />
       </Layout>
     </DataContextProvider>
   );

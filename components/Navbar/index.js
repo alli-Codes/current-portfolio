@@ -36,13 +36,6 @@ function NavBar(props) {
         >
           <p className={`w-52 font-extrabold text-lg`}>Evans</p>
 
-          <button
-            className="flex md:hidden"
-            onClick={() => toggleSidebar(!show)}
-          >
-            <Icon icon="mdi:menu" width={24} />
-          </button>
-
           <ul className={`hidden  md:flex gap-4`}>
             <li
               className={` transition-all hover:text-green-100 cursor-pointer text-[.8rem]`}
@@ -62,9 +55,9 @@ function NavBar(props) {
               <Link href="#contact">Contact</Link>
             </li>
           </ul>
-          <div className={`relative rounded-full hidden md:flex gap-14 `}>
+          <div className={`relative rounded-full md:flex gap-14 `}>
             <ul
-              className={`bg-[#0000002b] px-3 rounded-full flex flex-row gap-3`}
+              className={`bg-[#0000002b] px-3 rounded-full hidden md:flex flex-row gap-3`}
             >
               <a href="" target="_blank">
                 <Icon icon="line-md:twitter" />
@@ -76,7 +69,7 @@ function NavBar(props) {
                 <Icon icon="line-md:linkedin" />
               </a>
             </ul>
-            <div className="">
+            <div className="flex gap-10">
               <div
                 className={`theme__container ${
                   isDark ? "bg-[#6200EE]" : "bg-transparent"
@@ -100,6 +93,12 @@ function NavBar(props) {
                   />
                 </div>
               </div>
+              <button
+                className="flex md:hidden"
+                onClick={() => toggleSidebar(!show)}
+              >
+                <Icon icon="mdi:menu" width={24} />
+              </button>
             </div>
           </div>
         </div>

@@ -56,7 +56,7 @@ export default function Header({ children }) {
 
       {/* shows on desktop */}
       <div
-        className={`w-full md:max-w-[70rem]  rounded-xl lg:dark:bg-dark-200 md:h-[70vh] py-8 flex flex-col-reverse md:flex-row justify-center items-center self-center gap-10 `}
+        className={`w-full md:max-w-[70rem]  rounded-xl lg:bg-[#1d1d1d18] lg:dark:bg-dark-200 md:h-[70vh] py-8 flex flex-col-reverse md:flex-row justify-center items-center self-center gap-10 `}
       >
         <div className={`max-w-[30rem] h-full flex items-center `}>
           <div className={`text-justify`}>
@@ -65,7 +65,7 @@ export default function Header({ children }) {
               className={`text-[2rem] md:text-[3rem] text-center md:text-left`}
             >
               Hi, I am{" "}
-              <span className="font-bold text-green-800 dark:text-green-400">
+              <span className="font-bold text-[#1ba470] dark:text-green-400">
                 Evans
               </span>
             </h1>

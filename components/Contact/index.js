@@ -207,7 +207,7 @@ function ContactForm({ contactActive, closeContactForm }) {
               value={userInput.message}
             ></textarea>
             <button
-              className="w-full p-3 text-center text-black font-semibold transition-all bg-green-400 rounded "
+              className="w-full p-3 text-center text-black font-semibold transition-all bg-[#1ba470] rounded "
               onClick={sendMessage}
             >
               {loading ? (
