@@ -68,7 +68,7 @@ function Projects(props) {
         </Swiper>
       </div>
 
-      <div className="project__wrapper max-w-[50rem] hidden md:flex flex-wrap gap-4 justify-center relative">
+      <div className="project__wrapper max-w-[54rem] hidden md:flex flex-wrap gap-4 justify-center relative">
         <Swiper
           slidesPerView={2}
           spaceBetween={0}
@@ -80,8 +80,8 @@ function Projects(props) {
           {projects.map((item, index) => {
             return (
               <SwiperSlide className="project__item px-4 !flex !justify-center gap-y-2">
-                <div className="w-[20rem]">
-                  <div className="project__image h-[14rem] relative rounded-t !overflow-hidden">
+                <div className="w-[24rem]">
+                  <div className="project__image h-[18rem] relative rounded-t !overflow-hidden">
                     <img
                       src={`/images/projects/${item.image_url[0]}`}
                       className="h-full w-full object-cover"
@@ -89,7 +89,6 @@ function Projects(props) {
                     <button
                       onClick={() => {
                         changeState(index);
-                        console.log("Hey");
                       }}
                       className="bg-green-400 dark:bg-green-400 text-black absolute bottom-2 right-2 rounded-lg p-2 text-xs !font-bold "
                     >

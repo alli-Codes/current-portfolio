@@ -14,7 +14,7 @@ export default function Intro() {
           SOME OF THE TOOLS I USE
         </h1>
 
-        <div className="tools max-w-[30rem] flex flex-wrap justify-center gap-y-10">
+        <div className="tools flex flex-wrap justify-center gap-y-10">
           {myTools.map((value) => {
             return (
               <div className="flex flex-col items-center">

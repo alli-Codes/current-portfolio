@@ -128,10 +128,10 @@ function ContactForm({ contactActive, closeContactForm }) {
           className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
         ></span>
       </div>
-      <div className=" flex justify-center gap-x-8">
-        <div className="socials w-full px-2 flex flex-col gap-y-4">
+      <div className=" flex flex-col-reverse md:flex-row justify-center items-center gap-8">
+        <div className="socials md:w-full max-w-[20rem] px-2 flex flex-col items-center gap-y-2">
           <h3 className="text-sm py-4">My social handles</h3>
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-4 flex-wrap justify-center">
             <a
               href=""
               className="flex items-center gap-1 px-3 py-2 bg-black dark:bg-dark-100 text-white-100 text-xs rounded-full"

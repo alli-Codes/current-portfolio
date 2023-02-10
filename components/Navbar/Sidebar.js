@@ -20,7 +20,7 @@ const Sidebar = function (props) {
         <Icon icon="mdi:close-thick" width={20} color="white" />
       </button>
       <div
-        className={`sidebar w-full max-w-[15rem] bg-white-100 py-10 flex flex-col justify-between ${
+        className={`sidebar w-full max-w-[15rem] bg-white-100 py-10 flex flex-col justify-between hidden ${
           show ? "slide__in" : "slide__out"
         }`}
       >

@@ -82,6 +82,7 @@ body{
 }
 
 .slide__in{
+    display: flex !important;
     animation-name: slideIn;
     animation-duration: .3s;
     animation-timing-function: ease;
@@ -98,6 +99,7 @@ body{
 }
 
 .slide__out {
+    /* display: flex !important; */
     animation-name: slideOut;
     animation-duration: .3s;
     animation-timing-function: ease;
@@ -115,7 +117,7 @@ body{
 }
 
 .overlay__show{
-    /* background-color: #1d1d1d9c; */
+    /* background-color: #ffffffaf; */
     animation-name: overlayShow;
     animation-duration: .3s;
     animation-timing-function: ease;
