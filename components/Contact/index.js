@@ -129,7 +129,7 @@ function ContactForm({ contactActive, closeContactForm }) {
         ></span>
       </div>
       <div className=" flex justify-center gap-x-8">
-        <div className="socials px-2 flex flex-col gap-y-4">
+        <div className="socials w-full px-2 flex flex-col gap-y-4">
           <h3 className="text-sm py-4">My social handles</h3>
           <div className="flex gap-4 flex-wrap">
             <a
@@ -177,7 +177,7 @@ function ContactForm({ contactActive, closeContactForm }) {
             id="inputs"
             className="w-full flex flex-col items-start justify-start text-xs gap-4"
           >
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full flex flex-col md:flex-row gap-4">
               <input
                 type="text"
                 name="name"
