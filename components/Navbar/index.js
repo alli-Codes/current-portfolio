@@ -9,12 +9,33 @@ import usersInfo from "../../data/usersInfo.json";
 
 function NavBar(props) {
   let { show, toggleSidebar } = props;
+
+  useEffect(() => {
+    const container = document.querySelector(".theme__container");
+    const wrapper = document.querySelector(".theme__wrapper");
+    const images = document.querySelectorAll(".theme__img");
+
+    let active = false;
+    const changeImageState = function () {
+      images.forEach((image) => image.classList.toggle("active_image"));
+    };
+
+    container.addEventListener("click", () => {
+      active = !active;
+      // light.classList.toggle('active')
+      changeImageState();
+      wrapper.style.left = active ? "1rem" : ".1rem";
+      container.style.backgroundColor = active ? "#6200EE" : "";
+    });
+  });
   return (
     <React.Fragment>
       <div
-        className={`navbar w-full dark:text-white-100 sticky bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center px-5 py-[20px]`}
+        className={`navbar w-full dark:text-white-100 sticky bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center px-5 py-[20px] sticky top-0`}
       >
-        <div className={`w-full max-w-[70rem] flex justify-between`}>
+        <div
+          className={`w-full max-w-[70rem] flex justify-between items-center`}
+        >
           <p className={`font-extrabold text-lg`}>Evans</p>
 
           <button
@@ -43,10 +64,10 @@ function NavBar(props) {
               <Link href="#contact">Contact</Link>
             </li>
           </ul>
-          <div
-            className={`relative px-4 bg-[#0000002b] rounded-full hidden md:flex `}
-          >
-            <ul className={`flex flex-row gap-3`}>
+          <div className={`relative px-4  rounded-full hidden md:flex gap-14 `}>
+            <ul
+              className={`bg-[#0000002b] px-3 rounded-full flex flex-row gap-3`}
+            >
               <a href="" target="_blank">
                 <Icon icon="line-md:twitter" />
               </a>
@@ -57,6 +78,22 @@ function NavBar(props) {
                 <Icon icon="line-md:linkedin" />
               </a>
             </ul>
+            <div className="">
+              <div className="theme__container">
+                <div className="theme__wrapper">
+                  <img
+                    className="theme__img active_image"
+                    src="/images/light-moon.png"
+                    alt=""
+                  />
+                  <img
+                    className="theme__img"
+                    src="/images/dark-moon.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

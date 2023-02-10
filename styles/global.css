@@ -44,6 +44,12 @@
     --cario: Cario;
 }
 
+/* * {
+    padding: 0;
+    margin: 0;
+      box-sizing: border-box;
+} */
+
 html{
     scroll-behavior: smooth;
     font-family: 'Poppins',
@@ -154,4 +160,43 @@ body{
     align-items: center;
     font-size: 1rem;
     font-weight: bold;
+}
+
+/* Theme toggler styles*/
+
+.theme__container {
+    height: 1.5rem;
+    width: 2.5rem;
+    border: 1px solid #779;
+    border-radius: 3rem;
+    /* padding: .1rem; */
+    /* margin: 1rem; */
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.theme__wrapper {
+    height: 1.2rem;
+    width: 1.2rem;
+    /* margin: 0 .2rem; */
+    display: flex;
+    align-items: center;
+    border-radius: 100%;
+    transition: all .5s;
+    position: absolute;
+    /* right: 0; */
+    left: .1rem
+}
+
+.theme__img {
+    /* height: 50%; */
+    width: 100%;
+    display: none;
+}
+
+.active_image {
+    display: flex
 }
