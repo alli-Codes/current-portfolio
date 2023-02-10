@@ -188,13 +188,13 @@ body{
     transition: all .5s;
     position: absolute;
     /* right: 0; */
-    left: .1rem
+    /* left: .1rem */
 }
 
 .theme__img {
     /* height: 50%; */
     width: 100%;
-    display: none;
+    /* display: none; */
 }
 
 .active_image {

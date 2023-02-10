@@ -9,6 +9,7 @@ import {
   EMAILJS_SERVICE_ID,
   EMAILJS_PUBLIC_KEY,
 } from "../../config";
+import { Icon } from "@iconify/react";
 
 const notif = new Notification(3000);
 
@@ -111,7 +112,7 @@ function ContactForm({ contactActive, closeContactForm }) {
   }
 
   return (
-    <div className="w-full dark:bg-dark-300 px-12 py-5 max-w-[50rem] text-white-100 rounded">
+    <div className="w-full dark:bg-dark-300 px-12 py-5 max-w-[50rem] dark:text-white-100 text-black rounded">
       <div
         className={`w-full flex flex-row items-center justify-center py-6 md:py-3`}
       >
@@ -127,8 +128,45 @@ function ContactForm({ contactActive, closeContactForm }) {
           className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
         ></span>
       </div>
-      <div className=" flex justify-center">
-        <div className={` max-w-[25rem] z-[999] transition-all`} id="form">
+      <div className=" flex justify-center gap-x-8">
+        <div className="socials px-2 flex flex-col gap-y-4">
+          <h3 className="text-sm py-4">My social handles</h3>
+          <div className="flex gap-4 flex-wrap">
+            <a
+              href=""
+              className="flex items-center gap-1 px-3 py-2 bg-black dark:bg-dark-100 text-white-100 text-xs rounded-full"
+            >
+              <Icon icon="mdi:linkedin" width={15} />
+              LinkedIn
+            </a>
+
+            <a
+              href=""
+              className="flex items-center gap-1 p-2 bg-black dark:bg-dark-100 text-white-100 text-xs rounded-full"
+            >
+              <Icon icon="mdi:twitter" width={15} />
+              Twitter
+            </a>
+
+            <a
+              href=""
+              className="flex items-center gap-1 p-2 bg-black dark:bg-dark-100 text-white-100 text-xs rounded-full"
+            >
+              <Icon icon="mdi:github" width={15} />
+              GitHub
+            </a>
+
+            <a
+              href=""
+              className="flex items-center gap-1 p-2 bg-black dark:bg-dark-100 text-white-100 text-xs rounded-full"
+            >
+              <Icon icon="mdi:facebook" width={15} />
+              Facebook
+            </a>
+          </div>
+        </div>
+
+        <div className={`w-full max-w-[25rem] transition-all`} id="form">
           <div
             id="head"
             className="w-full flex flex-row items-start justify-start"
@@ -143,7 +181,7 @@ function ContactForm({ contactActive, closeContactForm }) {
               <input
                 type="text"
                 name="name"
-                className="w-full p-3 rounded bg-dark-100 border-none outline-none "
+                className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 border-none outline-none "
                 placeholder="Full Name"
                 value={userInput.name}
                 onChange={handleInput}
@@ -152,7 +190,7 @@ function ContactForm({ contactActive, closeContactForm }) {
               <input
                 type="mail"
                 name="email"
-                className="w-full p-3 rounded bg-dark-100 border-none outline-none "
+                className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 border-none outline-none "
                 placeholder="johndoe@mail.com"
                 value={userInput.email}
                 onChange={handleInput}
@@ -163,17 +201,17 @@ function ContactForm({ contactActive, closeContactForm }) {
               cols=""
               rows="8"
               name="message"
-              className="w-full p-3 bg-dark-100 resize-none rounded outline-none"
+              className="w-full p-3 bg-[#1d1d1d18] dark:bg-dark-100 resize-none rounded outline-none"
               placeholder="Message"
               onChange={handleInput}
               value={userInput.message}
             ></textarea>
             <button
-              className="w-full p-3 text-center transition-all bg-dark-200 rounded hover:bg-dark-400"
+              className="w-full p-3 text-center text-black font-semibold transition-all bg-green-400 rounded "
               onClick={sendMessage}
             >
               {loading ? (
-                <span className="text-green-200">Sending Message..</span>
+                <span className="text-red-200">Sending Message..</span>
               ) : (
                 "Send Message"
               )}

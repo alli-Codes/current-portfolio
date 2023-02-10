@@ -9,15 +9,14 @@ function Layout(props) {
   let { overLayState, children, changeState, index } = props;
   let [show, toggleSidebar] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, [windowWidth]);
+  const [isDark, changeMode] = useState(true);
+
+  const changeTheme = function () {
+    changeMode(!isDark);
+  };
 
   return (
-    <div className={` dark `}>
+    <div className={` ${isDark ? "dark" : ""} `}>
       <Modal
         overLayState={overLayState}
         changeState={changeState}
@@ -26,7 +25,12 @@ function Layout(props) {
       <div className="dark:bg-dark-100">
         <DomHead />
         <Sidebar show={show} toggleSidebar={toggleSidebar} />
-        <NavBar show={show} toggleSidebar={toggleSidebar} />
+        <NavBar
+          isDark={isDark}
+          changeTheme={changeTheme}
+          show={show}
+          toggleSidebar={toggleSidebar}
+        />
         <Header></Header>
         {children}
         {windowWidth <= 700 && <ResponsiveNavbar />}

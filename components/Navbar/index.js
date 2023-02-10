@@ -8,35 +8,33 @@ import usersInfo from "../../data/usersInfo.json";
 // import avatar from "../../public/images/avatar/avatar.png";
 
 function NavBar(props) {
-  let { show, toggleSidebar } = props;
+  let { isDark, changeTheme, show, toggleSidebar } = props;
 
   useEffect(() => {
-    const container = document.querySelector(".theme__container");
-    const wrapper = document.querySelector(".theme__wrapper");
-    const images = document.querySelectorAll(".theme__img");
-
-    let active = false;
-    const changeImageState = function () {
-      images.forEach((image) => image.classList.toggle("active_image"));
-    };
-
-    container.addEventListener("click", () => {
-      active = !active;
-      // light.classList.toggle('active')
-      changeImageState();
-      wrapper.style.left = active ? "1rem" : ".1rem";
-      container.style.backgroundColor = active ? "#6200EE" : "";
-    });
+    // const container = document.querySelector(".theme__container");
+    // const wrapper = document.querySelector(".theme__wrapper");
+    // const images = document.querySelectorAll(".theme__img");
+    // let active = false;
+    // const changeImageState = function () {
+    //   images.forEach((image) => image.classList.toggle("active_image"));
+    // };
+    // container.addEventListener("click", () => {
+    //   active = !active;
+    //   // light.classList.toggle('active')
+    //   changeImageState();
+    //   wrapper.style.left = active ? "1rem" : ".1rem";
+    //   container.style.backgroundColor = active ? "#6200EE" : "";
+    // });
   });
   return (
     <React.Fragment>
       <div
-        className={`navbar w-full dark:text-white-100 sticky bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center px-5 py-[20px] sticky top-0`}
+        className={`navbar w-full dark:text-white-100 sticky bg-[#ffffffaf] dark:bg-[#00000015] backdrop-blur-sm z-[1000] flex justify-center px-5 py-[20px] sticky top-0`}
       >
         <div
           className={`w-full max-w-[70rem] flex justify-between items-center`}
         >
-          <p className={`font-extrabold text-lg`}>Evans</p>
+          <p className={`w-52 font-extrabold text-lg`}>Evans</p>
 
           <button
             className="flex md:hidden"
@@ -45,7 +43,7 @@ function NavBar(props) {
             <Icon icon="mdi:menu" width={24} />
           </button>
 
-          <ul className={`hidden md:flex gap-4`}>
+          <ul className={`hidden  md:flex gap-4`}>
             <li
               className={` transition-all hover:text-green-100 cursor-pointer text-[.8rem]`}
             >
@@ -64,7 +62,7 @@ function NavBar(props) {
               <Link href="#contact">Contact</Link>
             </li>
           </ul>
-          <div className={`relative px-4  rounded-full hidden md:flex gap-14 `}>
+          <div className={`relative rounded-full hidden md:flex gap-14 `}>
             <ul
               className={`bg-[#0000002b] px-3 rounded-full flex flex-row gap-3`}
             >
@@ -79,15 +77,24 @@ function NavBar(props) {
               </a>
             </ul>
             <div className="">
-              <div className="theme__container">
-                <div className="theme__wrapper">
+              <div
+                className={`theme__container ${
+                  isDark ? "bg-[#6200EE]" : "bg-transparent"
+                }`}
+                onClick={changeTheme}
+              >
+                <div
+                  className={`theme__wrapper absolute ${
+                    isDark ? "left-[1rem]" : "left-[.2rem]"
+                  }`}
+                >
                   <img
-                    className="theme__img active_image"
+                    className={isDark ? "hidden" : ""}
                     src="/images/light-moon.png"
                     alt=""
                   />
                   <img
-                    className="theme__img"
+                    className={isDark ? "" : "hidden"}
                     src="/images/dark-moon.png"
                     alt=""
                   />

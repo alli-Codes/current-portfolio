@@ -81,7 +81,7 @@ function Projects(props) {
             return (
               <SwiperSlide className="project__item px-4 !flex !justify-center gap-y-2">
                 <div className="w-[20rem]">
-                  <div className="project__image h-[14rem] relative rounded !overflow-hidden">
+                  <div className="project__image h-[14rem] relative rounded-t !overflow-hidden">
                     <img
                       src={`/images/projects/${item.image_url[0]}`}
                       className="h-full w-full object-cover"
@@ -91,12 +91,12 @@ function Projects(props) {
                         changeState(index);
                         console.log("Hey");
                       }}
-                      className="bg-green-100 text-black absolute bottom-2 right-2 rounded-lg p-2 text-xs !font-bold "
+                      className="bg-green-400 dark:bg-green-400 text-black absolute bottom-2 right-2 rounded-lg p-2 text-xs !font-bold "
                     >
                       See more
                     </button>
                   </div>
-                  <p className="project__title bg-dark-300 p-3 text-center text-sm font-bold rounded">
+                  <p className="project__title bg-black dark:bg-dark-400 text-white-100 dark:text-white-100 p-3 text-center text-sm font-semibold rounded-b">
                     {item.title}
                   </p>
                 </div>
