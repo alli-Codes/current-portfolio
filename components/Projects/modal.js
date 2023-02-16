@@ -20,7 +20,7 @@ function Modal(props) {
         className={`overlay h-full w-full bg-[#00f97c14] flex justify-center md:items-center fixed z-[10000] ${overLayState}`}
       >
         <div className="relative w-full flex items-center justify-center px-5">
-          <div className="modal bg-white-100 border border-1 border-black shadow-lg h-[70vh] md:h-[80vh] max-w-[20rem] lg:max-w-[70rem] flex flex-col lg:flex-row rounded-lg overflow-hidden relative">
+          <div className="modal bg-white-100 border border-1 border-black shadow-lg h-[70vh] md:h-[80vh] max-w-[20rem] lg:max-w-[60rem] flex flex-col lg:flex-row rounded-lg overflow-hidden relative">
             <section className="bg-black h-full  w-full   image__section flex items-center overflow-hidden">
               <Swiper
                 className="h-full w-full"
@@ -37,7 +37,7 @@ function Modal(props) {
                       <section className="w-full h-full flex justify-center items-center ">
                         <img
                           src={`/images/projects/${image_url}`}
-                          className="h-[15rem] md:h-full w-full object-cover"
+                          className="h-[15rem] md:h-full w-full object-contain"
                         />
                       </section>
                     </SwiperSlide>
@@ -46,7 +46,7 @@ function Modal(props) {
                 })}
               </Swiper>
             </section>
-            <section className="description__section w-full lg:max-w-[25rem]  h-full py-10 px-5 flex flex-col gap-y-4 md:gap-y-10 overflow-y-auto break-words">
+            <section className="description__section w-full lg:max-w-[20rem]  h-full py-10 px-5 flex flex-col gap-y-4 md:gap-y-10 overflow-y-auto break-words">
               <h1 className="text-2xl md:text-3xl text-green-700 font-extrabold">
                 {project.title}
               </h1>
