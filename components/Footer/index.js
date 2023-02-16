@@ -2,10 +2,9 @@ function Footer() {
   return (
     <div
       id="footer"
-      className="relative text-white-100 py-4 bg-dark-300 flex flex-col items-center justify-center "
+      className="relative text-white-100 text-sm py-4 mt-20 bg-dark-300 flex flex-col items-center justify-center "
     >
-      <p>copyright@2023</p>
-      <p>built with</p>
+      <p>All rights reserved, 2023</p>
     </div>
   );
 }

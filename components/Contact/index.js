@@ -112,10 +112,8 @@ function ContactForm({ contactActive, closeContactForm }) {
   }
 
   return (
-    <div className="w-full dark:bg-dark-300 px-12 py-5 max-w-[50rem] dark:text-white-100 text-black rounded">
-      <div
-        className={`w-full flex flex-row items-center justify-center py-6 md:py-3`}
-      >
+    <div className="w-full dark:bg-dark-300 border border-1 dark:border-none px-12 py-10 max-w-[50rem] dark:text-white-100 text-black rounded">
+      <div className={`w-full flex flex-row items-center justify-center`}>
         <span
           data-aos="zoom-in"
           className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
@@ -181,8 +179,8 @@ function ContactForm({ contactActive, closeContactForm }) {
               <input
                 type="text"
                 name="name"
-                className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 border-none outline-none "
-                placeholder="Full Name"
+                className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 outline-none border dark:border-none focus:border-black "
+                placeholder="Full Name*"
                 value={userInput.name}
                 onChange={handleInput}
               />
@@ -190,8 +188,8 @@ function ContactForm({ contactActive, closeContactForm }) {
               <input
                 type="mail"
                 name="email"
-                className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 border-none outline-none "
-                placeholder="johndoe@mail.com"
+                className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 border dark:border-none focus:border-black  outline-none "
+                placeholder="Email*"
                 value={userInput.email}
                 onChange={handleInput}
               />
@@ -201,8 +199,8 @@ function ContactForm({ contactActive, closeContactForm }) {
               cols=""
               rows="8"
               name="message"
-              className="w-full p-3 bg-[#1d1d1d18] dark:bg-dark-100 resize-none rounded outline-none"
-              placeholder="Message"
+              className="w-full p-3 bg-[#1d1d1d18] dark:bg-dark-100 resize-none rounded border dark:border-none focus:border-black  outline-none"
+              placeholder="Message*"
               onChange={handleInput}
               value={userInput.message}
             ></textarea>

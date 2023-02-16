@@ -56,8 +56,12 @@ export default function Header({ children }) {
 
       {/* shows on desktop */}
       <div
-        className={`w-full md:max-w-[70rem]  rounded-xl lg:bg-[#1d1d1d18] lg:dark:bg-dark-200 md:h-[70vh] py-8 flex flex-col-reverse md:flex-row justify-center items-center self-center gap-10 `}
+        className={`w-full md:max-w-[70rem]  rounded-xl lg:bg-[#1d1d1d18] relative lg:dark:bg-dark-200 md:h-[70vh] py-8 flex flex-col-reverse md:flex-row justify-center items-center self-center gap-10 `}
       >
+        <img
+          src="/images/background.png"
+          className="h-full w-full object-cover absolute"
+        />
         <div className={`max-w-[30rem] h-full flex items-center `}>
           <div className={`text-justify`}>
             <h1
