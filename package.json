@@ -15,6 +15,7 @@
     "dotenv": "^16.0.0",
     "gradient-string": "^2.0.1",
     "inquirer": "^8.2.4",
+    "json-validace": "^2.0.0",
     "next": "12.1.5",
     "notyf": "^3.10.0",
     "react": "18.1.0",
