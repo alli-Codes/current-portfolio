@@ -72,7 +72,7 @@ function NavBar(props) {
             <div className="flex gap-10">
               <div
                 className={`theme__container ${
-                  isDark ? "bg-[#6200EE]" : "bg-transparent"
+                  isDark ? "bg-black" : "bg-transparent"
                 }`}
                 onClick={changeTheme}
               >
