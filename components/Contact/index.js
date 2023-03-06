@@ -80,19 +80,19 @@ function ContactForm({ contactActive, closeContactForm }) {
   }
 
   return (
-    <div className="w-full dark:bg-dark-300 border border-1 dark:border-none px-12 py-10 max-w-[50rem] dark:text-white-100 text-black rounded">
-      <div className={`w-full flex flex-row items-center justify-center`}>
-        <span
+    <div className="w-full dark:bg-dark-300 border border-1 dark:border-none px-7 py-10 max-w-[50rem] dark:text-white-100 text-black rounded">
+      <div className={`flex items-center justify-center self-stretch gap-x-4 `}>
+        <p
           data-aos="zoom-in"
-          className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
-        ></span>
+          className={`w-full max-w-[100px] h-[2px] rounded-[30px] md:m-[20px] bg-green-200 md:w-[120px]`}
+        ></p>
         <p data-aos="fade-up" className={`text-3xl font-bold`}>
           Contact
         </p>
-        <span
+        <p
           data-aos="zoom-in"
-          className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
-        ></span>
+          className={`w-full max-w-[100px] h-[2px] rounded-[30px] md:m-[20px] bg-green-200 md:w-[120px]`}
+        ></p>
       </div>
       <div className=" flex flex-col-reverse md:flex-row justify-center items-center gap-8">
         <div className="socials md:w-full max-w-[20rem] px-2 flex flex-col items-center gap-y-2">

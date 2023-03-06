@@ -10,25 +10,24 @@ function Projects(props) {
 
   return (
     <div
-      className={`w-full h-auto dark:text-white-100 relative p-24 flex flex-col items-center justify-center gap-y-20`}
+      className={`w-full h-auto dark:text-white-100 relative py-24 px-7 flex flex-col items-center justify-center gap-y-20`}
       id="projects"
     >
-      {/* <Modal /> */}
-      <div className={`w-full flex flex-row items-center justify-center`}>
-        <span
+      <div className={`flex items-center justify-center self-stretch gap-x-4 `}>
+        <p
           data-aos="zoom-in"
-          className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
-        ></span>
+          className={`w-full max-w-[100px] h-[2px] rounded-[30px] md:m-[20px] bg-green-200 md:w-[120px]`}
+        ></p>
         <p data-aos="fade-up" className={`text-3xl font-bold`}>
           Projects
         </p>
-        <span
+        <p
           data-aos="zoom-in"
-          className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}
-        ></span>
+          className={`w-full max-w-[100px] h-[2px] rounded-[30px] md:m-[20px] bg-green-200 md:w-[120px]`}
+        ></p>
       </div>
 
-      <div className="project__wrapper max-w-[20rem] flex md:hidden flex-wrap gap-4 justify-center relative">
+      <div className="project__wrapper bg-blue-300 max-w-[20rem] flex md:hidden flex-wrap gap-4 justify-center relative">
         <Swiper
           slidesPerView={1}
           spaceBetween={0}
