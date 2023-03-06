@@ -1,69 +1,17 @@
-import { useState, useEffect } from "react";
-import { Container } from "..";
-
-import usersInfo from "../../data/usersInfo.json";
-import languages from "../../data/languages.json";
-
 export default function Header({ children }) {
-  const [resumeActive, setResumeActive] = useState(false);
-  const [reposcount, setReposCount] = useState(0);
-  const [avatar, setAvatar] = useState("");
-
-  const userName = usersInfo.github_username;
-
-  function openResume() {
-    setResumeActive(!resumeActive);
-  }
-
-  // fetch github repos count
-  // async function getReposCount() {
-  //   let res;
-  //   if (localStorage.getItem("repo_counts") === null) {
-  //     res = await fetch(`https://api.github.com/users/${userName}`);
-  //     let data = await res.json();
-
-  //     if (data && data.public_repos !== undefined) {
-  //       const { public_repos, avatar_url } = data;
-  //       localStorage.setItem("repo_counts", JSON.stringify(public_repos));
-  //       // store github user avatar
-  //       localStorage.setItem("github_avatar", JSON.stringify(avatar_url));
-  //       setReposCount(public_repos);
-  //     }
-  //   }
-
-  //   // get data from cahched localstorage
-  //   let data = JSON.parse(localStorage.getItem("repo_counts"));
-  //   let useravatar = JSON.parse(localStorage.getItem("github_avatar"));
-
-  //   setReposCount(data);
-  //   setAvatar(useravatar);
-
-  //   return data;
-  // }
-
-  // useEffect(() => {
-  //   (async () => {
-  //     await getReposCount();
-  //   })();
-  // }, []);
-
   return (
     <header
       className={` md:px-8 p-8 dark:text-white-100 flex justify-center relative`}
     >
-      {/* <Container>
-        {children} */}
-
-      {/* shows on desktop */}
       <div
         className={`w-full md:max-w-[70rem]  rounded-xl lg:bg-[#1d1d1d18] relative lg:dark:bg-dark-200 md:h-[70vh] py-8 flex flex-col-reverse md:flex-row justify-center items-center self-center gap-10 `}
       >
         <img
           src="/images/background.png"
-          className="h-full w-full object-cover absolute"
+          className="h-full w-full object-cover absolute hidden dark:flex"
         />
         <div className={`max-w-[30rem] h-full flex items-center `}>
-          <div className={`text-justify`}>
+          <div className={`text-justify flex flex-col gap-y-4`}>
             <h1
               data-aos="fade-right"
               className={`text-[2rem] md:text-[3rem] text-center md:text-left`}
@@ -73,18 +21,20 @@ export default function Header({ children }) {
                 Evans
               </span>
             </h1>
-            <br />
             <span data-aos="fade-in" className={`text-sm md:text-[1rem] `}>
               My name is Evans Allison and I am an experienced Frontend
-              Developer with 4+ years of working experience as a freelancer. I
-              am open to freelancing, remote jobs, and collaboration. You can
-              connect with me with any of my social media handles or send me a
-              message directly from this platform.
+              Developer with 4+ years of experience working with web-based
+              technologies. <br />I am open to freelancing, remote jobs, and
+              collaboration. You can connect with me with any of my social media
+              handles or send me a message directly from this platform.
             </span>
-            <br />
+            <a
+              href="/about"
+              className="self-end p-2 bg-[#1ba470] dark:bg-green-700 border border-black !text-white text-xs rounded-full z-10 "
+            >
+              more about me
+            </a>
           </div>
-
-          {resumeActive && <ResumeViewer openResume={openResume} />}
         </div>
         <div data-aos="fade-left" className={` h-auto relative `}>
           <div
@@ -95,89 +45,9 @@ export default function Header({ children }) {
                 background-image: url("/images/avatar/avatar.jpeg");
               }
             `}</style>
-            {/* <img data-aos="zoom-in-up" src={avatar === "" ? userAvatar.src : avatar} className={`avatar rounded-[50%] `} /> */}
           </div>
-          <div data-aos="fade-up" className={`circleA`}>
-            {/* <img
-                src={
-                  languages.languages.length === 0 &&
-                  languages.languages.length > 2
-                    ? "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                    : languages.languages[0]
-                }
-                className={`langImgA`}
-              /> */}
-          </div>
-          <div data-aos="fade-right" className={`circleB`}>
-            {/* <img
-                src={
-                  languages.languages.length === 0 &&
-                  languages.languages.length > 2
-                    ? "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                    : languages.languages[1]
-                }
-                className={`langImgB`}
-              /> */}
-          </div>
-          {/* <div data-aos="fade-left" className={`circleC`}>
-              <img
-                src={
-                  languages.languages.length === 0 &&
-                  languages.languages.length > 2
-                    ? "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                    : languages.languages[2]
-                }
-                className={`langImgC`}
-              />
-            </div> */}
         </div>
       </div>
-      {/* </Container> */}
     </header>
-  );
-}
-
-function ResumeViewer({ openResume }) {
-  function dowloadCv() {
-    let link = document.createElement("a");
-    link.href = resume;
-    link.download = "resume.pdf";
-    link.click();
-  }
-
-  return (
-    <div className="fixed top-0 left-0 w-screen h-screen bg-dark-400 z-[1500] flex flex-row items-center justify-center">
-      <div
-        id="box"
-        className="w-[100%] h-[99%] mx-auto bg-dark-100 overflow-hidden rounded-md md:w-[70%]"
-      >
-        <div
-          id="head"
-          className="w-full h-auto p-3 bg-dark-200 flex items-start justify-start"
-        >
-          <h2>My Resume / CV</h2>
-          <button
-            className="px-3 py-1 flex flex-row items-center justify-center bg-green-300 ml-4 text-[12px] text-dark-300 font-bold rounded-[5px] scale-[.90] transition-all hover:scale-[.95]  "
-            onClick={dowloadCv}
-          >
-            Download
-          </button>
-          <button
-            className="px-3 py-1 flex flex-row items-center justify-center bg-red-500 ml-4 text-[12px] text-dark-300 font-bold rounded-[5px] scale-[.90] transition-all hover:scale-[.95] "
-            onClick={openResume}
-          >
-            Close
-          </button>
-        </div>
-        <iframe
-          src={"/CV/resume.pdf"}
-          frameborder="0"
-          className="w-full h-full overflow-scroll bg-white-200 mt-0"
-        ></iframe>
-        <br />
-        <br />
-        <br />
-      </div>
-    </div>
   );
 }
