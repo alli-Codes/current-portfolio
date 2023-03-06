@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
-import { Container } from "..";
-import { AiFillMessage, AiOutlineClose } from "react-icons/ai";
+import React, { useContext, useEffect, useState } from "react";
 import DataContext from "../../context/DataContext";
 import emailjs from "@emailjs/browser";
+import messageSchema from "../../config/validace.schema";
 import { Notification, validateEmail } from "../../helpers";
 import {
   EMAILJS_TEMPLATE_ID,
@@ -47,68 +46,70 @@ function ContactForm({ contactActive, closeContactForm }) {
     });
   }
 
+  // let [inputErrorMessage, updateError] = useState(["", ""]);
+  let errorElement;
+  useEffect(() => {
+    errorElement = document.querySelectorAll("error-element");
+  });
   function sendMessage() {
-    if (userInput.name === "") {
-      return notif.error("username cant be blank.");
-    }
-    if (userInput.email === "") {
-      return notif.error("email cant be blank.");
-    }
-    if (userInput.message === "") {
-      return notif.error("message cant be blank.");
-    }
-
-    // validate phonenumber
-    if (validateEmail(userInput.email) == false) {
-      return notif.error("email is invalid.");
-    }
-
-    const { name, email, message } = userInput;
-
-    const templateParams = {
-      from_name: name,
-      sender_email: email,
-      message,
-    };
-
-    // check if EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY isnt empty
-
-    if (
-      EMAILJS_TEMPLATE_ID === "" ||
-      EMAILJS_SERVICE_ID === "" ||
-      EMAILJS_PUBLIC_KEY === ""
-    ) {
-      console.error(`
-                FAILED TO SEND MESSAGE: missing some configurations. check your config file.
-
-                check your config/index.js file
-            `);
-      return notif.error(` FAILED TO SEND MESSAGE: something went wrong.`);
-    }
-
-    setLoading(true);
-    emailjs
-      .send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (response) => {
-          setLoading(false);
-          notif.success("MESSAGE SENT.");
-          userInput.email = "";
-          userInput.name = "";
-          userInput.message = "";
-          return console.log(response);
-        },
-        (err) => {
-          setLoading(false);
-          notif.error(`Something went wrong, could not send message.`);
-          console.error(err);
-        }
-      );
+    const result = messageSchema.validate(userInput);
+    errorElement.forEach((element) => (element.innerText = "Hello"));
+    // console.log(formErrors, result);
+    console.log(userInput);
+    // if (userInput.name === "") {
+    //   return notif.error("username cant be blank.");
+    // }
+    // if (userInput.email === "") {
+    //   return notif.error("email cant be blank.");
+    // }
+    // if (userInput.message === "") {
+    //   return notif.error("message cant be blank.");
+    // }
+    // // validate phonenumber
+    // if (validateEmail(userInput.email) == false) {
+    //   return notif.error("email is invalid.");
+    // }
+    // const { name, email, message } = userInput;
+    // const templateParams = {
+    //   from_name: name,
+    //   sender_email: email,
+    //   message,
+    // };
+    // // check if EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY isnt empty
+    // if (
+    //   EMAILJS_TEMPLATE_ID === "" ||
+    //   EMAILJS_SERVICE_ID === "" ||
+    //   EMAILJS_PUBLIC_KEY === ""
+    // ) {
+    //   console.error(`
+    //             FAILED TO SEND MESSAGE: missing some configurations. check your config file.
+    //             check your config/index.js file
+    //         `);
+    //   return notif.error(` FAILED TO SEND MESSAGE: something went wrong.`);
+    // }
+    // setLoading(true);
+    // emailjs
+    //   .send(
+    //     EMAILJS_SERVICE_ID,
+    //     EMAILJS_TEMPLATE_ID,
+    //     templateParams,
+    //     EMAILJS_PUBLIC_KEY
+    //   )
+    //   .then(
+    //     (response) => {
+    //       setLoading(false);
+    //       notif.success("MESSAGE SENT.");
+    //       userInput.email = "";
+    //       userInput.name = "";
+    //       userInput.message = "";
+    //       return console.log(response);
+    //     },
+    //     (err) => {
+    //       setLoading(false);
+    //       notif.error(`Something went wrong, could not send message.`);
+    //       console.error(err);
+    //     }
+    //   );
   }
 
   return (
@@ -176,23 +177,29 @@ function ContactForm({ contactActive, closeContactForm }) {
             className="w-full flex flex-col items-start justify-start text-xs gap-4"
           >
             <div className="w-full flex flex-col md:flex-row gap-4">
-              <input
-                type="text"
-                name="name"
-                className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 outline-none border dark:border-none focus:border-black "
-                placeholder="Full Name*"
-                value={userInput.name}
-                onChange={handleInput}
-              />
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 outline-none border dark:border-none focus:border-black "
+                  placeholder="Full Name*"
+                  value={userInput.name}
+                  onChange={handleInput}
+                />
+                <p className="error-element text-red-300"></p>
+              </div>
 
-              <input
-                type="mail"
-                name="email"
-                className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 border dark:border-none focus:border-black  outline-none "
-                placeholder="Email*"
-                value={userInput.email}
-                onChange={handleInput}
-              />
+              <div>
+                <input
+                  type="mail"
+                  name="email"
+                  className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 border dark:border-none focus:border-black  outline-none "
+                  placeholder="Email*"
+                  value={userInput.email}
+                  onChange={handleInput}
+                />
+                <p className="error-element text-red-300"></p>
+              </div>
             </div>
 
             <textarea
