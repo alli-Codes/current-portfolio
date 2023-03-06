@@ -1,7 +1,4 @@
-import Link from "next/link";
-
 import tools from "../../data/tools.json";
-import usersInfo from "../../data/usersInfo.json";
 
 export default function Intro() {
   const myTools = tools.tools;
@@ -14,31 +11,20 @@ export default function Intro() {
           SOME OF THE TOOLS I USE
         </h1>
 
-        <div className="tools flex flex-wrap justify-center gap-y-10">
+        <div className="tools flex flex-wrap justify-center gap-x-2 gap-y-2">
           {myTools.map((value) => {
             return (
               <div className="flex flex-col items-center">
-                <img src={`/images/tools/${value.image}.png`} />
+                <img
+                  className="w-14 md:w-auto"
+                  src={`/images/tools/${value.image}.png`}
+                />
                 <p className="font-semibold text-xs">{value.tool}</p>
               </div>
             );
           })}
         </div>
-
-        {/* <Link href="/about">
-            <a
-              data-aos="zoom-in-up"
-              className={`text-[14px] font-bold text-green-200 underline`}
-            >
-              Read More
-            </a>
-          </Link> */}
       </div>
-      {/* <div className={styles.companies}>
-                <img src="https://avatars.githubusercontent.com/u/104397777?s=200&v=4" className={styles.compImage} alt="" />
-                <img src="" className={styles.compImage} alt="" />
-            </div>
-            <br /> */}
     </div>
   );
 }
