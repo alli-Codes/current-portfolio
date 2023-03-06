@@ -51,6 +51,7 @@ function Modal(props) {
               <h1 className="pb-5 text-2xl md:text-3xl text-green-700 font-extrabold">
                 {project.title}
               </h1>
+              <p className="text-justify ">{project.description}</p>
               <p className="text-green-700 text-xs flex gap-x-2 flex-wrap">
                 <a href={project.project_url.hosting}>
                   {trimString(project.project_url.hosting)}
@@ -59,7 +60,6 @@ function Modal(props) {
                   {trimString(project.project_url.github)}
                 </a>
               </p>
-              <p className="text-justify ">{project.description}</p>
             </section>
             <button
               onClick={() => {
