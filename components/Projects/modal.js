@@ -11,6 +11,7 @@ function Modal(props) {
   const { overLayState, changeState, index } = props;
   let i = index ?? 0;
   const project = projects[i];
+  const trimString = (string) => string.slice(8);
   useEffect(() => {
     let body = document.querySelector("body");
   });
@@ -50,8 +51,13 @@ function Modal(props) {
               <h1 className="pb-5 text-2xl md:text-3xl text-green-700 font-extrabold">
                 {project.title}
               </h1>
-              <p className="text-green-700 text-xs">
-                https://allicodes.vercel.app
+              <p className="text-green-700 text-xs flex gap-x-2 flex-wrap">
+                <a href={project.project_url.hosting}>
+                  {trimString(project.project_url.hosting)}
+                </a>
+                <a href={project.project_url.github}>
+                  {trimString(project.project_url.github)}
+                </a>
               </p>
               <p className="text-justify ">{project.description}</p>
             </section>
