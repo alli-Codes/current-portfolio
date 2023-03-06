@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import DataContext from "../../context/DataContext";
 import emailjs from "@emailjs/browser";
 import messageSchema from "../../config/validace.schema";
@@ -27,6 +27,27 @@ function Contact() {
 export default Contact;
 
 function ContactForm({ contactActive, closeContactForm }) {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        form.current,
+        EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   const [loading, setLoading] = useState(false);
   const [userInput, setUserInputs] = useState({
     name: "",
@@ -45,18 +66,17 @@ function ContactForm({ contactActive, closeContactForm }) {
       };
     });
   }
-
-  // let [inputErrorMessage, updateError] = useState(["", ""]);
   let errorHolder = "";
   let [errors, updateErrors] = useState(errorHolder);
 
-  function sendMessage() {
+  function validateInputs() {
     const result = messageSchema.validate(userInput);
     errorHolder = result.error ?? "";
     updateErrors(errorHolder);
     console.log(errorHolder);
     // console.log(formErrors, result);
     console.log(userInput, result);
+    return result.isValid;
   }
 
   return (
@@ -119,11 +139,15 @@ function ContactForm({ contactActive, closeContactForm }) {
           >
             <h1 className="text-sm py-4">Send a message</h1>
           </div>
-          <div
+          <form
             id="inputs"
             className="w-full flex flex-col items-start justify-start text-xs gap-4"
           >
-            <div className="w-full flex flex-col md:flex-row gap-4">
+            <div
+              ref={form}
+              onSubmit={sendEmail}
+              className="w-full flex flex-col md:flex-row gap-4"
+            >
               <div>
                 <input
                   type="text"
@@ -167,17 +191,18 @@ function ContactForm({ contactActive, closeContactForm }) {
                 {errors.message ? errors.message.required : ""}
               </p>
             </div>
-            <button
-              className="w-full p-3 text-center text-black font-semibold transition-all bg-[#1ba470] rounded "
-              onClick={sendMessage}
-            >
-              {loading ? (
+            <input
+              className="w-full p-3 text-center text-black font-semibold transition-all bg-[#1ba470] rounded cursor-pointer"
+              type="submit"
+              value="Send Message"
+            />
+            {/* {loading ? (
                 <span className="text-red-200">Sending Message..</span>
               ) : (
                 "Send Message"
               )}
-            </button>
-          </div>
+            </input> */}
+          </form>
         </div>
       </div>
     </div>
