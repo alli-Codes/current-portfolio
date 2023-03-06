@@ -47,69 +47,16 @@ function ContactForm({ contactActive, closeContactForm }) {
   }
 
   // let [inputErrorMessage, updateError] = useState(["", ""]);
-  let errorElement;
-  useEffect(() => {
-    errorElement = document.querySelectorAll("error-element");
-  });
+  let errorHolder = "";
+  let [errors, updateErrors] = useState(errorHolder);
+
   function sendMessage() {
     const result = messageSchema.validate(userInput);
-    errorElement.forEach((element) => (element.innerText = "Hello"));
+    errorHolder = result.error ?? "";
+    updateErrors(errorHolder);
+    console.log(errorHolder);
     // console.log(formErrors, result);
-    console.log(userInput);
-    // if (userInput.name === "") {
-    //   return notif.error("username cant be blank.");
-    // }
-    // if (userInput.email === "") {
-    //   return notif.error("email cant be blank.");
-    // }
-    // if (userInput.message === "") {
-    //   return notif.error("message cant be blank.");
-    // }
-    // // validate phonenumber
-    // if (validateEmail(userInput.email) == false) {
-    //   return notif.error("email is invalid.");
-    // }
-    // const { name, email, message } = userInput;
-    // const templateParams = {
-    //   from_name: name,
-    //   sender_email: email,
-    //   message,
-    // };
-    // // check if EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY isnt empty
-    // if (
-    //   EMAILJS_TEMPLATE_ID === "" ||
-    //   EMAILJS_SERVICE_ID === "" ||
-    //   EMAILJS_PUBLIC_KEY === ""
-    // ) {
-    //   console.error(`
-    //             FAILED TO SEND MESSAGE: missing some configurations. check your config file.
-    //             check your config/index.js file
-    //         `);
-    //   return notif.error(` FAILED TO SEND MESSAGE: something went wrong.`);
-    // }
-    // setLoading(true);
-    // emailjs
-    //   .send(
-    //     EMAILJS_SERVICE_ID,
-    //     EMAILJS_TEMPLATE_ID,
-    //     templateParams,
-    //     EMAILJS_PUBLIC_KEY
-    //   )
-    //   .then(
-    //     (response) => {
-    //       setLoading(false);
-    //       notif.success("MESSAGE SENT.");
-    //       userInput.email = "";
-    //       userInput.name = "";
-    //       userInput.message = "";
-    //       return console.log(response);
-    //     },
-    //     (err) => {
-    //       setLoading(false);
-    //       notif.error(`Something went wrong, could not send message.`);
-    //       console.error(err);
-    //     }
-    //   );
+    console.log(userInput, result);
   }
 
   return (
@@ -186,7 +133,9 @@ function ContactForm({ contactActive, closeContactForm }) {
                   value={userInput.name}
                   onChange={handleInput}
                 />
-                <p className="error-element text-red-300"></p>
+                <p className="error-element text-red-300">
+                  {errors.name ? errors.name.required : ""}
+                </p>
               </div>
 
               <div>
@@ -198,19 +147,26 @@ function ContactForm({ contactActive, closeContactForm }) {
                   value={userInput.email}
                   onChange={handleInput}
                 />
-                <p className="error-element text-red-300"></p>
+                <p className="error-element text-red-300">
+                  {errors.email ? errors.email[Object.keys(errors.email)] : ""}
+                </p>
               </div>
             </div>
 
-            <textarea
-              cols=""
-              rows="8"
-              name="message"
-              className="w-full p-3 bg-[#1d1d1d18] dark:bg-dark-100 resize-none rounded border dark:border-none focus:border-black  outline-none"
-              placeholder="Message*"
-              onChange={handleInput}
-              value={userInput.message}
-            ></textarea>
+            <div className="w-full flex flex-col gap-2">
+              <textarea
+                cols=""
+                rows="8"
+                name="message"
+                className="w-full p-3 bg-[#1d1d1d18] dark:bg-dark-100 resize-none rounded border dark:border-none focus:border-black  outline-none"
+                placeholder="Message*"
+                onChange={handleInput}
+                value={userInput.message}
+              ></textarea>
+              <p className="error-element text-red-300">
+                {errors.message ? errors.message.required : ""}
+              </p>
+            </div>
             <button
               className="w-full p-3 text-center text-black font-semibold transition-all bg-[#1ba470] rounded "
               onClick={sendMessage}
