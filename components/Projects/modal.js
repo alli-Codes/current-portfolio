@@ -46,10 +46,13 @@ function Modal(props) {
                 })}
               </Swiper>
             </section>
-            <section className="description__section w-full lg:max-w-[20rem]  h-full py-10 px-5 flex flex-col gap-y-4 md:gap-y-10 overflow-y-auto break-words">
-              <h1 className="text-2xl md:text-3xl text-green-700 font-extrabold">
+            <section className="description__section w-full lg:max-w-[20rem]  h-full py-10 px-5 flex flex-col gap-y-4 md:gap-y-3 overflow-y-auto break-words">
+              <h1 className="pb-5 text-2xl md:text-3xl text-green-700 font-extrabold">
                 {project.title}
               </h1>
+              <p className="text-green-700 text-xs">
+                https://allicodes.vercel.app
+              </p>
               <p className="text-justify ">{project.description}</p>
             </section>
             <button
