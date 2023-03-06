@@ -30,7 +30,7 @@ export default function Header({ children }) {
             </span>
             <a
               href="/about"
-              className="self-end p-2 bg-[#1ba470] dark:bg-green-700 border border-black !text-white text-xs rounded-full z-10 "
+              className="self-center md:self-end p-2 bg-[#1ba470] dark:bg-green-700 border border-black !text-white text-xs rounded-full z-10 "
             >
               more about me
             </a>
