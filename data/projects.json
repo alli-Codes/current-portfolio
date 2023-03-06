@@ -10,7 +10,7 @@
                 "hosting": "https://allicodes.vercel.app",
                 "github": "https://github.cp,/alli-Code"
             },
-            "description": "Git find is a web app that let's you search for github users to see their information and projects as well."
+            "description": "This is a portfolio website I developed for a company named, Nengieve Integrated Services, to help them showcase their services and past achievements online. The technologies I used to develop the site were: Svelte, Tailwindcss and ExpressJs."
         },
         {
             "title": "News Lading-page",
