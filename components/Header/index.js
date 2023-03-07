@@ -11,7 +11,7 @@ export default function Header({ children }) {
           className="h-full w-full object-cover absolute hidden dark:flex"
         />
         <div className={`max-w-[30rem] h-full flex items-center `}>
-          <div className={`text-justify flex flex-col gap-y-4`}>
+          <div className={`text-justify flex flex-col gap-y-5`}>
             <h1
               data-aos="fade-right"
               className={`text-[2rem] md:text-[3rem] text-center md:text-left`}
@@ -30,7 +30,7 @@ export default function Header({ children }) {
             </span>
             <a
               href="/about"
-              className="self-center md:self-start p-2 bg-[#1ba470]  border border-black !text-white text-xs rounded-full z-10 "
+              className="self-center md:self-start p-2 bg-[#1ba470] hover:bg-green-400 hover:text-black border border-black !text-white text-xs rounded z-10 transition duration-500 "
             >
               more about me
             </a>
