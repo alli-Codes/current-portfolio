@@ -28,30 +28,11 @@ export default Contact;
 
 function ContactForm({ contactActive, closeContactForm }) {
   const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        form.current,
-        EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
 
   const [loading, setLoading] = useState(false);
   const [userInput, setUserInputs] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     message: "",
   });
 
@@ -73,11 +54,29 @@ function ContactForm({ contactActive, closeContactForm }) {
     const result = messageSchema.validate(userInput);
     errorHolder = result.error ?? "";
     updateErrors(errorHolder);
-    console.log(errorHolder);
-    // console.log(formErrors, result);
-    console.log(userInput, result);
     return result.isValid;
   }
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    validateInputs()
+      ? emailjs
+          .send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            { ...userInput },
+            EMAILJS_PUBLIC_KEY
+          )
+          .then(
+            (result) => {
+              console.log(result.text);
+            },
+            (error) => {
+              console.log(error.text);
+            }
+          )
+      : undefined;
+  };
 
   return (
     <div className="w-full dark:bg-dark-300 border border-1 dark:border-none px-7 py-10 max-w-[50rem] dark:text-white-100 text-black rounded">
@@ -141,43 +140,42 @@ function ContactForm({ contactActive, closeContactForm }) {
           </div>
           <form
             id="inputs"
-            className="w-full flex flex-col items-start justify-start text-xs gap-4"
+            className="w-full flex flex-col items-start justify-start text-xs gap-5"
+            onSubmit={sendEmail}
           >
-            <div
-              ref={form}
-              onSubmit={sendEmail}
-              className="w-full flex flex-col md:flex-row gap-4"
-            >
+            <div ref={form} className="w-full flex flex-col md:flex-row gap-4">
               <div>
                 <input
                   type="text"
-                  name="name"
+                  name="from_name"
                   className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 outline-none border dark:border-none focus:border-black "
                   placeholder="Full Name*"
-                  value={userInput.name}
+                  value={userInput.from_name}
                   onChange={handleInput}
                 />
-                <p className="error-element text-red-300">
-                  {errors.name ? errors.name.required : ""}
+                <p className="error-element text-red-300 px-2 text-[9px] absolute">
+                  {errors.from_name?.required ?? " "}
                 </p>
               </div>
 
               <div>
                 <input
                   type="mail"
-                  name="email"
+                  name="from_email"
                   className="w-full p-3 rounded bg-[#1d1d1d18] dark:bg-dark-100 border dark:border-none focus:border-black  outline-none "
                   placeholder="Email*"
-                  value={userInput.email}
+                  value={userInput.from_email}
                   onChange={handleInput}
                 />
-                <p className="error-element text-red-300">
-                  {errors.email ? errors.email[Object.keys(errors.email)] : ""}
+                <p className=" error-element text-red-300 px-2 text-[9px] absolute">
+                  {errors.from_email
+                    ? errors.from_email[Object.keys(errors.from_email)]
+                    : " "}
                 </p>
               </div>
             </div>
 
-            <div className="w-full flex flex-col gap-2">
+            <div className="w-full relative">
               <textarea
                 cols=""
                 rows="8"
@@ -187,12 +185,12 @@ function ContactForm({ contactActive, closeContactForm }) {
                 onChange={handleInput}
                 value={userInput.message}
               ></textarea>
-              <p className="error-element text-red-300">
-                {errors.message ? errors.message.required : ""}
+              <p className="error-element text-red-300 px-2 text-[9px] absolute ">
+                {errors.message?.required}
               </p>
             </div>
             <input
-              className="w-full p-3 text-center text-black font-semibold transition-all bg-[#1ba470] rounded cursor-pointer"
+              className="w-full p-3 mt-2 text-center text-black font-semibold transition-all bg-[#1ba470] rounded cursor-pointer"
               type="submit"
               value="Send Message"
             />
